@@ -8,6 +8,9 @@ header {
   align-items: center;
   position: relative;
   height: 43px;
+  -webkit-box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.6);
 
   &__logo {
     margin-right: 25px;
@@ -26,7 +29,7 @@ header {
 
     li {
       list-style: none;
-      transform: skew(-25deg);
+      transform: skew(-20deg);
       padding-top: 14px;
       padding-left: 60px;
     }
