@@ -1,0 +1,39 @@
+header {
+  background-color: #131324;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 43px;
+
+  &__logo {
+    margin-right: 25px;
+  }
+
+  &__menu {
+    height: 100%;
+    width: 909px;
+    transform: skew(20deg);
+    background: #080812;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+    }
+
+    li {
+      list-style: none;
+      transform: skew(-25deg);
+      padding-top: 14px;
+      padding-left: 60px;
+    }
+  }
+
+  &__login {
+    margin-left: 34px;
+  }
+
+}
