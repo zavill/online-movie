@@ -1,0 +1,45 @@
+.recommendations {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  background-image: url("../img/recommendations_bg.png");
+
+  border-bottom: 5px solid #505464;
+
+  &__container {
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    max-width: 990px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+
+      &__poster {
+        margin-right: 50px;
+      }
+
+      &__poster:last-child {
+        margin-right: 15px !important;
+      }
+    }
+
+    &__text {
+      h2, p, h3 {
+        padding-top: 1px;
+      }
+      p {
+        font-weight: bold;
+      }
+      h3 {
+        font-size: 20px;
+      }
+    }
+  }
+}
