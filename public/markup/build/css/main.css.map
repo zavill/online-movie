@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","sources":["main.scss","partials/template.scss","partials/footer.scss","partials/header.scss"],"sourcesContent":["@import \"partials/template\";\n\n/* Хидер/футер */\n@import \"partials/footer\";\n@import \"partials/header\";\n\n/* Компоненты */","","",""],"names":[],"mappings":";AAEA,iBAAiB;AAIjB,gBAAgB"}
