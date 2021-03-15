@@ -18,6 +18,16 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   width: 100%; }
 
 /* Хидер/футер */
+footer {
+  background-color: #111119; }
+
+.footer {
+  height: 43px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center; }
+
 header {
   background-color: #131324; }
 
