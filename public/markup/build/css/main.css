@@ -59,14 +59,14 @@ header {
     margin-left: 34px; }
 
 /* Компоненты */
-.recommendations {
+.recommendations-block {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   position: relative;
   background-image: url("../img/recommendations_bg.png");
   border-bottom: 5px solid #505464; }
-  .recommendations__container {
+  .recommendations-block__container {
     margin: 0 auto;
     width: 100%;
     padding-top: 30px;
@@ -75,17 +75,17 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center; }
-    .recommendations__container__list {
+    .recommendations-block__container__list {
       display: flex;
       flex-direction: row; }
-      .recommendations__container__list__poster {
+      .recommendations-block__container__list__poster {
         margin-right: 50px; }
-      .recommendations__container__list__poster:last-child {
+      .recommendations-block__container__list__poster:last-child {
         margin-right: 15px !important; }
-    .recommendations__container__text h2, .recommendations__container__text p, .recommendations__container__text h3 {
+    .recommendations-block__container__text h2, .recommendations-block__container__text p, .recommendations-block__container__text h3 {
       padding-top: 1px; }
-    .recommendations__container__text p {
+    .recommendations-block__container__text p {
       font-weight: bold; }
-    .recommendations__container__text h3 {
+    .recommendations-block__container__text h3 {
       font-size: 20px; }
 /*# sourceMappingURL=main.css.map */
