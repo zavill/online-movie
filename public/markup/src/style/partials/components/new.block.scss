@@ -1,0 +1,20 @@
+.new-block {
+  background-color: #26293f;
+  padding-top: 30px;
+  padding-bottom: 21px;
+
+  &__header {
+    padding-bottom: 23px;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: row;
+    &__item {
+      margin-right: 53px;
+      &__header {
+        max-width: 230px;
+      }
+    }
+  }
+}

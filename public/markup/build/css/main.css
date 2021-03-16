@@ -88,4 +88,18 @@ header {
       font-weight: bold; }
     .recommendations-block__container__text h3 {
       font-size: 20px; }
+
+.new-block {
+  background-color: #26293f;
+  padding-top: 30px;
+  padding-bottom: 21px; }
+  .new-block__header {
+    padding-bottom: 23px; }
+  .new-block__section {
+    display: flex;
+    flex-direction: row; }
+    .new-block__section__item {
+      margin-right: 53px; }
+      .new-block__section__item__header {
+        max-width: 230px; }
 /*# sourceMappingURL=main.css.map */
