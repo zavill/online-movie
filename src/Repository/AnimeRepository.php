@@ -20,6 +20,20 @@ class AnimeRepository extends ServiceEntityRepository
         parent::__construct($registry, Anime::class);
     }
 
+    /**
+     * @param $categoryId
+     * @return Anime[]
+     */
+    public function findByCategory($categoryId): array
+    {
+        return $this->createQueryBuilder('a')
+            ->join('App\Entity\Categories', 'c')
+            ->andWhere('c.id = :category_id')
+            ->setParameter('category_id', 12)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Anime[] Returns an array of Anime objects
     //  */
