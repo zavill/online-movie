@@ -11,20 +11,20 @@ class Kodik
      *
      * @param $id
      * @return mixed
-     * @todo Переписать с CURL на SOAP
+     * @todo: Переписать с CURL на SOAP
      */
     public function getPlayer($id)
     {
-
         $arData = [
             'token' => '57bc8bccd7f8625b4d5d8b32f54b89b1',
             'id' => $id,
+            'prioritize_translations' => 1720,
+            'not_blocked_in' => 'RU'
         ];
 
         $curl = curl_init('https://kodikapi.com/search');
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($arData));
-
         $response = curl_exec($curl);
         curl_close($curl);
 
