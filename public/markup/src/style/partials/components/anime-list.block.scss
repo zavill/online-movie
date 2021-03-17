@@ -1,0 +1,50 @@
+.anime-list__block {
+  background-color: #1e2331;
+  padding-top: 25px;
+
+  &__header {
+    padding-bottom: 26px;
+  }
+
+  &__section {
+    display: flex;
+    padding-bottom: 38px;
+    flex-direction: column;
+    &__item {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 43px;
+      &__image {
+        max-width: 230px;
+      }
+
+      &__detail {
+        max-width: 503px;
+        padding-left: 17px;
+        &__header {
+          padding-bottom: 15px;
+        }
+        &__genre {
+          padding-bottom: 30px;
+        }
+      }
+    }
+    &__item:last-child {
+      padding-bottom: 0 !important;
+    }
+  }
+
+  &__container {
+    padding-bottom: 33px;
+    &__button {
+      padding: 8px;
+      max-width: 230px;
+      width: 100%;
+      background-color: #26293f;
+      color: white;
+      border: 1px solid #26293f;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+  }
+}
