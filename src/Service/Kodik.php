@@ -11,6 +11,7 @@ class Kodik
      *
      * @param $id
      * @return mixed
+     * @todo Переписать с CURL на SOAP
      */
     public function getPlayer($id)
     {
