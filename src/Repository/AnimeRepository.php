@@ -29,7 +29,7 @@ class AnimeRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('a')
             ->join('App\Entity\Categories', 'c')
             ->andWhere('c.id = :category_id')
-            ->setParameter('category_id', 12)
+            ->setParameter('category_id', $categoryId)
             ->getQuery()
             ->getResult();
     }
