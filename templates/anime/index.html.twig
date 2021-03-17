@@ -14,7 +14,7 @@
     Anime List:
     <ul>
         {% for movie in anime %}
-            <li>{{ movie.name }}</li>
+            <li><a href="{{ path('anime_player', {'id': movie.kodikId}) }}">{{ movie.name }}</a></li>
         {% endfor %}
     </ul>
 
