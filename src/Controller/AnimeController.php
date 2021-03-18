@@ -18,7 +18,6 @@ class AnimeController extends AbstractController
      */
     public function index(): Response
     {
-
         $arResult['anime'] = $this->getAllAnime();
         $arResult['categories'] = $this->getAllCategories();
 
@@ -34,12 +33,14 @@ class AnimeController extends AbstractController
      */
     public function animePlayer($id, Kodik $kodik): Response
     {
-        $anime = $this->getDoctrine()->getRepository(Anime::class)->find($id);
+        if (!$anime = $this->getDoctrine()->getRepository(Anime::class)->find($id)) {
+            throw $this->createNotFoundException('Сериал не найден');
+        }
 
         try {
             return $this->render('anime/player.html.twig', ['player' => $kodik->getPlayer($anime->getIdList())]);
         } catch (\ErrorException $exception) {
-            return new JsonResponse(['status' => 404, 'text' => 'Сериал не найден'], Response::HTTP_NOT_FOUND);
+            throw $this->createNotFoundException('Сериал не найден');
         }
     }
 
