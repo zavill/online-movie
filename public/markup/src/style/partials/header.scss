@@ -14,6 +14,18 @@ header {
 
   &__logo {
     margin-right: 25px;
+    display: flex;
+    flex-direction: row;
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1em;
+      &__sub-head {
+        font-weight: normal;
+        font-style: italic;
+      }
+    }
   }
 
   &__menu {

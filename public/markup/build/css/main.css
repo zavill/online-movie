@@ -45,7 +45,16 @@ header {
   -moz-box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.6);
   box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.6); }
   .header__logo {
-    margin-right: 25px; }
+    margin-right: 25px;
+    display: flex;
+    flex-direction: row; }
+    .header__logo__text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1em; }
+      .header__logo__text__sub-head {
+        font-weight: normal;
+        font-style: italic; }
   .header__menu {
     height: 100%;
     width: 909px;
