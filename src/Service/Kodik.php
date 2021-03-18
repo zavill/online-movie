@@ -9,15 +9,19 @@ class Kodik
     /**
      * Получение ссылки на плеер
      *
-     * @param $id
+     * @param array $arIds
      * @return mixed
      * @todo: Переписать с CURL на SOAP
      */
-    public function getPlayer($id)
+    public function getPlayer(array $arIds): string
     {
         $arData = [
-            'token' => '57bc8bccd7f8625b4d5d8b32f54b89b1',
-            'id' => $id,
+            'token' => $_ENV['KODIK_API'],
+            'kinopoisk_id' => $arIds['kinopoiskID'] ?: null,
+            'imdb_id' => $arIds['imdbID'] ?: null,
+            'mdl_id' => $arIds['mdlID'] ?: null,
+            'shikimori_id' => $arIds['shikimoriID'] ?: null,
+            'worldart_animation_id' => $arIds['worldartanimeID'] ?: null,
             'prioritize_translations' => 1720,
             'not_blocked_in' => 'RU'
         ];

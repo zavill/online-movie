@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Anime;
 use App\Entity\Categories;
 use App\Service\Kodik;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,8 +34,10 @@ class AnimeController extends AbstractController
      */
     public function animePlayer($id, Kodik $kodik): Response
     {
+        $anime = $this->getDoctrine()->getRepository(Anime::class)->find($id);
+
         try {
-            return $this->render('anime/player.html.twig', ['player' => $kodik->getPlayer($id)]);
+            return $this->render('anime/player.html.twig', ['player' => $kodik->getPlayer($anime->getIdList())]);
         } catch (\ErrorException $exception) {
             return new JsonResponse(['status' => 404, 'text' => 'Сериал не найден'], Response::HTTP_NOT_FOUND);
         }
