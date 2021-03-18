@@ -65,6 +65,31 @@ class Anime
      */
     private $posterURL;
 
+    /**
+     * @ORM\Column(type="string", length=16)
+     */
+    private $kinopoiskID;
+
+    /**
+     * @ORM\Column(type="string", length=16)
+     */
+    private $imdbID;
+
+    /**
+     * @ORM\Column(type="string", length=16)
+     */
+    private $mdlID;
+
+    /**
+     * @ORM\Column(type="string", length=16)
+     */
+    private $shikimoriID;
+
+    /**
+     * @ORM\Column(type="string", length=16)
+     */
+    private $worldartanimeID;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
@@ -195,6 +220,66 @@ class Anime
     public function removeCategory(Categories $category): self
     {
         $this->category->removeElement($category);
+
+        return $this;
+    }
+
+    public function getKinopoiskID(): ?string
+    {
+        return $this->kinopoiskID;
+    }
+
+    public function setKinopoiskID(string $kinopoiskID): self
+    {
+        $this->kinopoiskID = $kinopoiskID;
+
+        return $this;
+    }
+
+    public function getImdbID(): ?string
+    {
+        return $this->imdbID;
+    }
+
+    public function setImdbID(string $imdbID): self
+    {
+        $this->imdbID = $imdbID;
+
+        return $this;
+    }
+
+    public function getMdlID(): ?string
+    {
+        return $this->mdlID;
+    }
+
+    public function setMdlID(string $mdlID): self
+    {
+        $this->mdlID = $mdlID;
+
+        return $this;
+    }
+
+    public function getShikimoriID(): ?string
+    {
+        return $this->shikimoriID;
+    }
+
+    public function setShikimoriID(string $shikimoriID): self
+    {
+        $this->shikimoriID = $shikimoriID;
+
+        return $this;
+    }
+
+    public function getWorldartanimeID(): ?string
+    {
+        return $this->worldartanimeID;
+    }
+
+    public function setWorldartanimeID(string $worldartanimeID): self
+    {
+        $this->worldartanimeID = $worldartanimeID;
 
         return $this;
     }
