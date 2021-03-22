@@ -39,6 +39,8 @@
     flex-direction: column;
     max-width: 680px;
     width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
 
     &__subheader {
       font-weight: normal;
@@ -50,7 +52,7 @@
       dl {
         display: flex;
         flex-direction: row;
-
+        margin-bottom: 6px;
         dt {
           width: 60%;
           text-align: left;
