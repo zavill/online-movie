@@ -270,4 +270,77 @@ header {
 
 .full-star {
   background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M10.97 1.04l2.25 4.57c.16.32.46.54.81.59l5.05.73c.88.13 1.23 1.21.6 1.84l-3.66 3.55c-.25.25-.37.6-.3.96l.86 5.02c.15.88-.78 1.55-1.57 1.14l-4.5-2.37a1.08 1.08 0 00-1.01 0l-4.51 2.37a1.08 1.08 0 01-1.57-1.14l.87-5.02c.06-.35-.06-.7-.31-.96L.33 8.77c-.64-.63-.29-1.71.6-1.84l5.04-.73c.35-.05.65-.27.8-.6l2.26-4.56c.4-.8 1.54-.8 1.94 0z' fill='%23FFC700'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Cpath fill='%23fff' d='M0 0h20v20H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") !important; }
+
+.maybe-interesting {
+  margin-top: 37px; }
+  .maybe-interesting__section {
+    margin-top: 38px;
+    display: flex;
+    flex-direction: row; }
+
+.interesting-item__header {
+  padding-bottom: 8px; }
+
+.interesting-item__detail {
+  display: flex;
+  flex-direction: row; }
+
+.interesting-item__description-container {
+  max-width: 150px;
+  margin-left: 7px;
+  font-size: 14px; }
+
+.interesting-item:not(:nth-child(1)) {
+  margin-left: 26px; }
+
+.comments-block {
+  margin-top: 35px; }
+  .comments-block__section {
+    margin-top: 23px;
+    display: flex;
+    flex-direction: column; }
+
+.comments-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 22px; }
+
+.comments-detail {
+  margin-left: 12px; }
+  .comments-detail__head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px; }
+  .comments-detail__text {
+    margin-bottom: 5px; }
+  .comments-detail__footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center; }
+
+.comments-head__header {
+  margin-right: 17px; }
+
+.comments-head__time {
+  margin-right: 17px; }
+
+.comments-head__user-group {
+  color: #a7a1a1 !important; }
+
+.comments-footer__reply-button {
+  margin-right: 8px; }
+
+.sub-comments {
+  margin-top: 20px; }
+  .sub-comments__item {
+    display: flex;
+    flex-direction: row; }
+
+.good-rating {
+  color: #44a25d !important; }
+
+.bad-rating {
+  color: #f25f59 !important; }
 /*# sourceMappingURL=main.css.map */
