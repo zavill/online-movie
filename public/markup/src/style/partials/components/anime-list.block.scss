@@ -4,6 +4,9 @@
 
   &__header {
     padding-bottom: 26px;
+    @media (max-width: 998px) {
+      text-align: center;
+    }
   }
 
   &__section {
@@ -14,8 +17,15 @@
       display: flex;
       flex-direction: row;
       padding-bottom: 43px;
+      @media (max-width: 998px) {
+        flex-direction: column !important;
+        align-items: center;
+      }
       &__image {
         max-width: 230px;
+        @media (max-width: 998px) {
+          margin-bottom: 15px;
+        }
       }
 
       &__detail {
@@ -35,6 +45,9 @@
   }
 
   &__filter {
+    @media (max-width: 998px) {
+      display: none !important;
+    }
     margin-top: -25px;
     margin-left: 75px;
     &__header-block {

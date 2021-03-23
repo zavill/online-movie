@@ -9,18 +9,21 @@
 
   &__container {
     margin: 0 auto;
-    width: 100%;
     padding-top: 30px;
     padding-bottom: 30px;
     max-width: 990px;
     display: flex;
     flex-direction: row;
     align-items: center;
-
+    @media (max-width: 998px) {
+      flex-direction: column !important;
+    }
     &__list {
       display: flex;
       flex-direction: row;
-
+      @media (max-width: 998px) {
+        flex-direction: column !important;
+      }
       &__poster {
         margin-right: 50px;
       }

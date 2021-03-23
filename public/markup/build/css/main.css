@@ -94,16 +94,21 @@ header {
   border-bottom: 5px solid #505464; }
   .recommendations-block__container {
     margin: 0 auto;
-    width: 100%;
     padding-top: 30px;
     padding-bottom: 30px;
     max-width: 990px;
     display: flex;
     flex-direction: row;
     align-items: center; }
+    @media (max-width: 998px) {
+      .recommendations-block__container {
+        flex-direction: column !important; } }
     .recommendations-block__container__list {
       display: flex;
       flex-direction: row; }
+      @media (max-width: 998px) {
+        .recommendations-block__container__list {
+          flex-direction: column !important; } }
       .recommendations-block__container__list__poster {
         margin-right: 50px; }
       .recommendations-block__container__list__poster:last-child {
@@ -121,11 +126,21 @@ header {
   padding-bottom: 21px; }
   .new-block__header {
     padding-bottom: 23px; }
+    @media (max-width: 998px) {
+      .new-block__header {
+        text-align: center; } }
   .new-block__section {
-    display: flex;
-    flex-direction: row; }
+    display: flex; }
+    @media (max-width: 998px) {
+      .new-block__section {
+        flex-direction: column;
+        align-items: center; } }
     .new-block__section__item {
       margin-right: 53px; }
+      @media (max-width: 998px) {
+        .new-block__section__item {
+          margin-bottom: 30px;
+          margin-right: 0 !important; } }
       .new-block__section__item__header {
         max-width: 230px; }
 
@@ -134,6 +149,9 @@ header {
   padding-top: 25px; }
   .anime-list__block__header {
     padding-bottom: 26px; }
+    @media (max-width: 998px) {
+      .anime-list__block__header {
+        text-align: center; } }
   .anime-list__block__section {
     display: flex;
     padding-bottom: 38px;
@@ -142,8 +160,15 @@ header {
       display: flex;
       flex-direction: row;
       padding-bottom: 43px; }
+      @media (max-width: 998px) {
+        .anime-list__block__section__item {
+          flex-direction: column !important;
+          align-items: center; } }
       .anime-list__block__section__item__image {
         max-width: 230px; }
+        @media (max-width: 998px) {
+          .anime-list__block__section__item__image {
+            margin-bottom: 15px; } }
       .anime-list__block__section__item__detail {
         max-width: 503px;
         padding-left: 17px; }
@@ -156,6 +181,9 @@ header {
   .anime-list__block__filter {
     margin-top: -25px;
     margin-left: 75px; }
+    @media (max-width: 998px) {
+      .anime-list__block__filter {
+        display: none !important; } }
     .anime-list__block__filter__header-block {
       display: flex;
       flex-direction: row; }
