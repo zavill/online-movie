@@ -6,6 +6,8 @@ use App\Repository\AnimeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
+use Webmozart\Assert\Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AnimeRepository::class)
@@ -89,6 +91,11 @@ class Anime
      * @ORM\Column(type="string", length=16)
      */
     private $worldartanimeID;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $views = 0;
 
     public function __construct()
     {
@@ -294,4 +301,17 @@ class Anime
             'worldartanimeID' => $this->worldartanimeID,
         ];
     }
+
+    public function getViews(): ?int
+    {
+        return $this->views;
+    }
+
+    public function setViews(int $views): self
+    {
+        $this->views = $views;
+
+        return $this;
+    }
+
 }
