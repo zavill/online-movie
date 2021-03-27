@@ -1,14 +1,250 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AnimeController!{% endblock %}
+{% block title %}LampStudio: {{ anime.name }}{% endblock %}
 
 {% block body %}
-    <style>
-        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    </style>
-
-    <div class="example-wrapper">
-        <iframe id="kodik-player" src="{{ player }}" width="610" height="370" frameborder="0" allowfullscreen allow="autoplay *; fullscreen *"></iframe>
-    </div>
+    <div class="detail-info __container">
+        <div class="flex-row">
+            <div class="detail-info__images">
+                <div class="detail-info__images__poster">
+                    <img src="{{ anime.posterURL }}" height="310" width="230">
+                </div>
+{#                <div class="detail-info__images__frames">#}
+{#                    <div class="detail-info__images__frames__header">#}
+{#                        <h2>Кадры из аниме:</h2>#}
+{#                    </div>#}
+{#                    <div class="detail-info__images__frames__images">#}
+{#                        <img src="img/anime_frame.png">#}
+{#                        <img src="img/anime_frame.png">#}
+{#                        <img src="img/anime_frame.png">#}
+{#                        <img src="img/anime_frame.png">#}
+{#                    </div>#}
+{#                </div>#}
+            </div>
+            <div class="detail-info__text">
+                <h1 class="detail-info__text__header">{{ anime.name }}</h1>
+                <h2 class="detail-info__text__subheader">{{ anime.nameOrig }}</h2>
+                <div class="detail-info__text__options">
+                    <dl>
+                        <dt>Жанры:</dt>
+                        <dd>
+                            {% for genre in anime.category %}
+                                {{ genre.name }}{% if not loop.last %},{% endif %}
+                            {% endfor %}
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Тип:</dt>
+                        <dd>ТВ Сериал</dd>
+                    </dl>
+                    <dl>
+                        <dt>Эпизоды:</dt>
+                        <dd>12</dd>
+                    </dl>
+                    <dl>
+                        <dt>Статус:</dt>
+                        <dd>Вышло, 2019</dd>
+                    </dl>
+                    <dl>
+                        <dt>Студия:</dt>
+                        <dd>PuYUKAI</dd>
+                    </dl>
+                    <dl>
+                        <dt>Возрастные ограничения:</dt>
+                        <dd>12+</dd>
+                    </dl>
+                    <dl>
+                        <dt>Длительность:</dt>
+                        <dd>12 мин. ~ Серия</dd>
+                    </dl>
+                    <dl>
+                        <dt>Озвучивание:</dt>
+                        <dd>LoLiKoN, Spectralia</dd>
+                    </dl>
+                    <dl>
+                        <dt>Тайминг:</dt>
+                        <dd>Coffeiochek</dd>
+                    </dl>
+                </div>
+                <div class="detail-info__text__description">
+                    <h2 class="detail-info__text__description__header">Описание</h2>
+                    <div class="detail-info__text__description__text">
+                        {{ anime.description }}
+                    </div>
+                </div>
+            </div>
+        </div>
+{#        <div class="detail-info__rating">#}
+{#            <h2 class="detail-info__rating__header">Рейтинг:</h2>#}
+{#            <div class="detail-info__rating__final">#}
+{#                <span class="detail-info__rating__final__value">7.4 / 10 </span>#}
+{#                <p>Голосов: <span class="detail-info__rating__final_count">256</span></p>#}
+{#            </div>#}
+{#            <div class="detail-info__rating__stars">#}
+{#                <div class="flex-row">#}
+{#                    <label class="detail-info__rating__stars__star full-star"></label>#}
+{#                    <label class="detail-info__rating__stars__star full-star"></label>#}
+{#                    <label class="detail-info__rating__stars__star full-star"></label>#}
+{#                    <label class="detail-info__rating__stars__star full-star"></label>#}
+{#                    <label class="detail-info__rating__stars__star full-star"></label>#}
+{#                    <label class="detail-info__rating__stars__star full-star"></label>#}
+{#                    <label class="detail-info__rating__stars__star full-star"></label>#}
+{#                    <label class="detail-info__rating__stars__star"></label>#}
+{#                    <label class="detail-info__rating__stars__star"></label>#}
+{#                    <label class="detail-info__rating__stars__star"></label>#}
+{#                </div>#}
+{#                <p>Оценить:</p>#}
+{#            </div>#}
+{#        </div>#}
+        <div class="detail-info__player">
+            <iframe src="{{ player }}"
+                    id="player-iframe" allowfullscreen="" allow="autoplay *; fullscreen *" width="900" height="420"
+                    frameborder="0"></iframe>
+        </div>
+{#        <div class="detail-info__graphic-series">#}
+{#            <h2 class="graphic-series__header">График выхода серий:</h2>#}
+{#            <table width="100%" cellspacing="8" border="0">#}
+{#                <thead>#}
+{#                <tr>#}
+{#                    <th>Номер серии</th>#}
+{#                    <th>Название</th>#}
+{#                    <th>Дата выхода</th>#}
+{#                    <th>Статус</th>#}
+{#                </tr>#}
+{#                </thead>#}
+{#                <tbody>#}
+{#                <tr>#}
+{#                    <th>12 Серия</th>#}
+{#                    <th>Band Together! Quarter</th>#}
+{#                    <th>25 июня 2019</th>#}
+{#                    <th>Вышла</th>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                    <th>12 Серия</th>#}
+{#                    <th>Band Together! Quarter</th>#}
+{#                    <th>25 июня 2019</th>#}
+{#                    <th>Вышла</th>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                    <th>12 Серия</th>#}
+{#                    <th>Band Together! Quarter</th>#}
+{#                    <th>25 июня 2019</th>#}
+{#                    <th>Вышла</th>#}
+{#                </tr>#}
+{#                </tbody>#}
+{#            </table>#}
+{#            <button class="graphic-series__button">#}
+{#                <a href="#">Показать ещё</a>#}
+{#            </button>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="maybe-interesting __container">#}
+{#        <h2 class="maybe-interesting__header">Может быть интересно:</h2>#}
+{#        <div class="maybe-interesting__section">#}
+{#            <div class="interesting-item">#}
+{#                <h3 class="interesting-item__header">ИСЕКАЙ КВАРТЕТ ТВ-1</h3>#}
+{#                <div class="interesting-item__detail">#}
+{#                    <img class="interesting-item__image" src="img/anime-recommend-poster.png">#}
+{#                    <div class="interesting-item__description-container">#}
+{#                        <p>Жанры: комедия, Фэнтези, Пародия</p>#}
+{#                        <p>Тип: ТВ Сериал</p>#}
+{#                        <p>Статус: Вышло, 2020</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="interesting-item">#}
+{#                <h3 class="interesting-item__header">ИСЕКАЙ КВАРТЕТ ТВ-1</h3>#}
+{#                <div class="interesting-item__detail">#}
+{#                    <img class="interesting-item__image" src="img/anime-recommend-poster.png">#}
+{#                    <div class="interesting-item__description-container">#}
+{#                        <p>Жанры: комедия, Фэнтези, Пародия</p>#}
+{#                        <p>Тип: ТВ Сериал</p>#}
+{#                        <p>Статус: Вышло, 2020</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="interesting-item">#}
+{#                <h3 class="interesting-item__header">ИСЕКАЙ КВАРТЕТ ТВ-1</h3>#}
+{#                <div class="interesting-item__detail">#}
+{#                    <img class="interesting-item__image" src="img/anime-recommend-poster.png">#}
+{#                    <div class="interesting-item__description-container">#}
+{#                        <p>Жанры: комедия, Фэнтези, Пародия</p>#}
+{#                        <p>Тип: ТВ Сериал</p>#}
+{#                        <p>Статус: Вышло, 2020</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="interesting-item">#}
+{#                <h3 class="interesting-item__header">ИСЕКАЙ КВАРТЕТ ТВ-1</h3>#}
+{#                <div class="interesting-item__detail">#}
+{#                    <img class="interesting-item__image" src="img/anime-recommend-poster.png">#}
+{#                    <div class="interesting-item__description-container">#}
+{#                        <p>Жанры: комедия, Фэнтези, Пародия</p>#}
+{#                        <p>Тип: ТВ Сериал</p>#}
+{#                        <p>Статус: Вышло, 2020</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="comments-block __container">#}
+{#        <h2 class="comments-block__header">Комментарии:</h2>#}
+{#        <div class="comments-block__section">#}
+{#            <div class="comments-item">#}
+{#                <img src="img/comment_ava.png" height="52" width="52">#}
+{#                <div class="comments-detail">#}
+{#                    <div class="comments-detail__head">#}
+{#                        <h3 class="comments-head__header">Ololevich</h3>#}
+{#                        <p class="comments-head__time">2 часа назад</p>#}
+{#                        <p class="comments-head__user-group">Рядовой пользователь</p>#}
+{#                    </div>#}
+{#                    <div class="comments-detail__text">#}
+{#                        Проверочка#}
+{#                    </div>#}
+{#                    <div class="comments-detail__footer">#}
+{#                        <h5 class="comments-footer__reply-button">ОТВЕТИТЬ</h5>#}
+{#                        <span class="comments-detail__rating good-rating">5</span>#}
+{#                    </div>#}
+{#                    <div class="sub-comments">#}
+{#                        <div class="sub-comments__item">#}
+{#                            <img src="img/comment_ava.png" height="52" width="52">#}
+{#                            <div class="comments-detail">#}
+{#                                <div class="comments-detail__head">#}
+{#                                    <h3 class="comments-head__header">Ololevich</h3>#}
+{#                                    <p class="comments-head__time">1 час назад</p>#}
+{#                                    <p class="comments-head__user-group">Рядовой пользователь</p>#}
+{#                                </div>#}
+{#                                <div class="comments-detail__text">#}
+{#                                    О работает#}
+{#                                </div>#}
+{#                                <div class="comments-detail__footer">#}
+{#                                    <h5 class="comments-footer__reply-button">ОТВЕТИТЬ</h5>#}
+{#                                    <span class="comments-detail__rating">0</span>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="comments-item">#}
+{#                <img src="img/comment_ava.png" height="52" width="52">#}
+{#                <div class="comments-detail">#}
+{#                    <div class="comments-detail__head">#}
+{#                        <h3 class="comments-head__header">Coffeiochek</h3>#}
+{#                        <p class="comments-head__time">2 часа назад</p>#}
+{#                        <p class="comments-head__user-group">Рядовой пользователь</p>#}
+{#                    </div>#}
+{#                    <div class="comments-detail__text">#}
+{#                        Я тут спойлеры короче оставил! <span class="bad-rating">спойлер</span>#}
+{#                    </div>#}
+{#                    <div class="comments-detail__footer">#}
+{#                        <h5 class="comments-footer__reply-button">ОТВЕТИТЬ</h5>#}
+{#                        <span class="comments-detail__rating bad-rating">13</span>#}
+{#                    </div>#}
+{#                    <div class="sub-comments">#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
 {% endblock %}

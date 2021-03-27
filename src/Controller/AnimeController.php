@@ -38,10 +38,24 @@ class AnimeController extends AbstractController
         }
 
         try {
-            return $this->render('anime/player.html.twig', ['player' => $kodik->getPlayer($anime->getIdList())]);
+            $arRender = $this->getRenderInfoAction($anime, $kodik);
+            return $this->render('anime/player.html.twig', $arRender);
         } catch (\ErrorException $exception) {
             throw $this->createNotFoundException('Сериал не найден');
         }
+    }
+
+    /**
+     * @param Anime $anime
+     * @param Kodik $kodik
+     * @return array
+     */
+    private function getRenderInfoAction(Anime $anime, Kodik $kodik): array
+    {
+        return [
+            'anime' => $anime,
+            'player' => $kodik->getPlayer($anime->getIdList())
+        ];
     }
 
     /**
