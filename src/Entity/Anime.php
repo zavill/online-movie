@@ -131,18 +131,6 @@ class Anime
         return $this;
     }
 
-    public function getCategory(): ?Categories
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?Categories $category): self
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
     public function getYear(): ?int
     {
         return $this->year;
@@ -312,6 +300,14 @@ class Anime
         $this->views = $views;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Categories[]
+     */
+    public function getCategory(): Collection
+    {
+        return $this->category;
     }
 
 }
