@@ -6,9 +6,7 @@ use App\Entity\Anime;
 use App\Entity\Categories;
 use App\Repository\AnimeRepository;
 use App\Service\Kodik;
-use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -56,7 +54,7 @@ class AnimeController extends AbstractController
     {
         return [
             'anime' => $anime,
-            'player' => $kodik->getPlayer($anime->getIdList())
+            'player' => $kodik->getPlayer($anime->getKodikId(), $anime->getIdList())
         ];
     }
 

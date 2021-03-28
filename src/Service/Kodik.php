@@ -4,17 +4,25 @@
 namespace App\Service;
 
 
+use App\Utils\Cache\Redis;
+
 class Kodik
 {
     /**
      * Получение ссылки на плеер
      *
+     * @param string $kodikId
      * @param array $arIds
      * @return mixed
-     * @todo: Переписать с CURL на SOAP
      */
-    public function getPlayer(array $arIds): string
+    public function getPlayer(string $kodikId, array $arIds): string
     {
+        $redisCache = new Redis();
+
+        if ($linkPlayer = $redisCache->getValueFromCache($kodikId)) {
+            return $linkPlayer;
+        }
+
         $arData = [
             'token' => $_ENV['KODIK_API'],
             'kinopoisk_id' => $arIds['kinopoiskID'] ?: null,
@@ -32,7 +40,10 @@ class Kodik
         $response = curl_exec($curl);
         curl_close($curl);
 
-        return json_decode($response, true)['results'][0]['link'];
-    }
+        $linkResult = json_decode($response, true)['results'][0]['link'];
 
+        $redisCache->setValueToCache($kodikId, $linkResult);
+
+        return $linkResult;
+    }
 }
