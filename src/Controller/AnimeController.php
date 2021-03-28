@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Anime;
 use App\Entity\Categories;
+use App\Repository\AnimeRepository;
 use App\Service\Kodik;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,11 +30,12 @@ class AnimeController extends AbstractController
      *
      * @param $id
      * @param Kodik $kodik
+     * @param AnimeRepository $animeRepository
      * @return Response
      */
-    public function animePlayer($id, Kodik $kodik): Response
+    public function animePlayer($id, Kodik $kodik, AnimeRepository $animeRepository): Response
     {
-        if (!$anime = $this->getDoctrine()->getRepository(Anime::class)->find($id)) {
+        if (!$anime = $animeRepository->find($id)) {
             throw $this->createNotFoundException('Сериал не найден');
         }
 
