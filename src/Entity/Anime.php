@@ -6,8 +6,6 @@ use App\Repository\AnimeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints\Date;
-use Webmozart\Assert\Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AnimeRepository::class)
@@ -96,6 +94,36 @@ class Anime
      * @ORM\Column(type="integer", nullable=true)
      */
     private $views = 0;
+
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $type;
+
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $episodes;
+
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $ageCensor;
+
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $episodeLength;
+
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $voiced;
+
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $timings;
 
     public function __construct()
     {
@@ -203,6 +231,158 @@ class Anime
         return $this;
     }
 
+    public function getKinopoiskID(): ?string
+    {
+        return $this->kinopoiskID;
+    }
+
+    public function setKinopoiskID(?string $kinopoiskID): self
+    {
+        $this->kinopoiskID = $kinopoiskID;
+
+        return $this;
+    }
+
+    public function getImdbID(): ?string
+    {
+        return $this->imdbID;
+    }
+
+    public function setImdbID(?string $imdbID): self
+    {
+        $this->imdbID = $imdbID;
+
+        return $this;
+    }
+
+    public function getMdlID(): ?string
+    {
+        return $this->mdlID;
+    }
+
+    public function setMdlID(?string $mdlID): self
+    {
+        $this->mdlID = $mdlID;
+
+        return $this;
+    }
+
+    public function getShikimoriID(): ?string
+    {
+        return $this->shikimoriID;
+    }
+
+    public function setShikimoriID(?string $shikimoriID): self
+    {
+        $this->shikimoriID = $shikimoriID;
+
+        return $this;
+    }
+
+    public function getWorldartanimeID(): ?string
+    {
+        return $this->worldartanimeID;
+    }
+
+    public function setWorldartanimeID(?string $worldartanimeID): self
+    {
+        $this->worldartanimeID = $worldartanimeID;
+
+        return $this;
+    }
+
+    public function getViews(): ?int
+    {
+        return $this->views;
+    }
+
+    public function setViews(?int $views): self
+    {
+        $this->views = $views;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getEpisodes(): ?string
+    {
+        return $this->episodes;
+    }
+
+    public function setEpisodes(?string $episodes): self
+    {
+        $this->episodes = $episodes;
+
+        return $this;
+    }
+
+    public function getAgeCensor(): ?string
+    {
+        return $this->ageCensor;
+    }
+
+    public function setAgeCensor(?string $ageCensor): self
+    {
+        $this->ageCensor = $ageCensor;
+
+        return $this;
+    }
+
+    public function getEpisodeLength(): ?string
+    {
+        return $this->episodeLength;
+    }
+
+    public function setEpisodeLength(?string $episodeLength): self
+    {
+        $this->episodeLength = $episodeLength;
+
+        return $this;
+    }
+
+    public function getVoiced(): ?string
+    {
+        return $this->voiced;
+    }
+
+    public function setVoiced(?string $voiced): self
+    {
+        $this->voiced = $voiced;
+
+        return $this;
+    }
+
+    public function getTimings(): ?string
+    {
+        return $this->timings;
+    }
+
+    public function setTimings(?string $timings): self
+    {
+        $this->timings = $timings;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Categories[]
+     */
+    public function getCategory(): Collection
+    {
+        return $this->category;
+    }
+
     public function addCategory(Categories $category): self
     {
         if (!$this->category->contains($category)) {
@@ -217,97 +397,6 @@ class Anime
         $this->category->removeElement($category);
 
         return $this;
-    }
-
-    public function getKinopoiskID(): ?string
-    {
-        return $this->kinopoiskID;
-    }
-
-    public function setKinopoiskID(string $kinopoiskID): self
-    {
-        $this->kinopoiskID = $kinopoiskID;
-
-        return $this;
-    }
-
-    public function getImdbID(): ?string
-    {
-        return $this->imdbID;
-    }
-
-    public function setImdbID(string $imdbID): self
-    {
-        $this->imdbID = $imdbID;
-
-        return $this;
-    }
-
-    public function getMdlID(): ?string
-    {
-        return $this->mdlID;
-    }
-
-    public function setMdlID(string $mdlID): self
-    {
-        $this->mdlID = $mdlID;
-
-        return $this;
-    }
-
-    public function getShikimoriID(): ?string
-    {
-        return $this->shikimoriID;
-    }
-
-    public function setShikimoriID(string $shikimoriID): self
-    {
-        $this->shikimoriID = $shikimoriID;
-
-        return $this;
-    }
-
-    public function getWorldartanimeID(): ?string
-    {
-        return $this->worldartanimeID;
-    }
-
-    public function setWorldartanimeID(string $worldartanimeID): self
-    {
-        $this->worldartanimeID = $worldartanimeID;
-
-        return $this;
-    }
-
-    public function getIdList(): ?array
-    {
-        return [
-            'kinopoiskID' => $this->kinopoiskID,
-            'imdbID' => $this->imdbID,
-            'mdlID' => $this->mdlID,
-            'shikimoriID' => $this->shikimoriID,
-            'worldartanimeID' => $this->worldartanimeID,
-        ];
-    }
-
-    public function getViews(): ?int
-    {
-        return $this->views;
-    }
-
-    public function setViews(int $views): self
-    {
-        $this->views = $views;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Categories[]
-     */
-    public function getCategory(): Collection
-    {
-        return $this->category;
     }
 
 }
