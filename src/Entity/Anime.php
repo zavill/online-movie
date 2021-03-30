@@ -399,4 +399,15 @@ class Anime
         return $this;
     }
 
+    public function getIdList(): ?array
+    {
+        return [
+            'kinopoiskID' => $this->kinopoiskID,
+            'imdbID' => $this->imdbID,
+            'mdlID' => $this->mdlID,
+            'shikimoriID' => $this->shikimoriID,
+            'worldartanimeID' => $this->worldartanimeID,
+        ];
+    }
+
 }
