@@ -6,28 +6,18 @@ namespace App\Controller\Api;
 
 use App\Entity\Anime;
 use App\Entity\Rating;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/api/rating")
+ * @Route("/rating")
  *
  * Class RatingController
  * @package App\Controller\Api
  */
-class RatingController extends AbstractController
+class RatingController extends AbstractApi
 {
-
-    private $request;
-
-
-    public function __construct(RequestStack $requestStack)
-    {
-        $this->request = $requestStack->getCurrentRequest();
-    }
 
     /**
      *
@@ -50,7 +40,7 @@ class RatingController extends AbstractController
         if (!$anime = $entityManager->getRepository(Anime::class)->find($id)) {
             return new JsonResponse(
                 ['error' => "Не существует сериала с id $id"],
-                Response::HTTP_UNPROCESSABLE_ENTITY
+                Response::HTTP_NOT_FOUND
             );
         }
 
