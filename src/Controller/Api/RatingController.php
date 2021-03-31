@@ -6,10 +6,9 @@ namespace App\Controller\Api;
 
 use App\Entity\Anime;
 use App\Entity\Rating;
-use Symfony\Component\HttpClient\Exception\JsonException;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -22,18 +21,26 @@ use Symfony\Component\Routing\Annotation\Route;
 class RatingController extends AbstractController
 {
 
+    private $request;
+
+
+    public function __construct(RequestStack $requestStack)
+    {
+        $this->request = $requestStack->getCurrentRequest();
+    }
+
     /**
      *
      * @Route("/set/{id<\d+>}")
      * @param $id
-     * @param Request $request
      * @return JsonResponse
      */
-    public function setRating($id, Request $request): JsonResponse
+    public function setRating($id): JsonResponse
     {
         $entityManager = $this->getDoctrine()->getManager();
+        $ratingValue = (int)$this->request->get('rating');
 
-        if ((int)$request->get('rating') <= 0) {
+        if ($ratingValue <= 0) {
             return new JsonResponse(
                 ['error' => 'Не указан рейтинг'],
                 Response::HTTP_UNPROCESSABLE_ENTITY
@@ -49,7 +56,7 @@ class RatingController extends AbstractController
 
         $rating = new Rating();
         $rating->setAnime($anime);
-        $rating->setRatingValue((int)$request->get('rating'));
+        $rating->setRatingValue($ratingValue);
 
         $entityManager->persist($rating);
         $entityManager->flush();
