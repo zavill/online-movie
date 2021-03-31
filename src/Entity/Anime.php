@@ -135,9 +135,15 @@ class Anime
      */
     private $studio;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Rating::class, mappedBy="Anime")
+     */
+    private $ratings;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
+        $this->ratings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -447,6 +453,36 @@ class Anime
     public function addView(): self
     {
         $this->views++;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Rating[]
+     */
+    public function getRatings(): Collection
+    {
+        return $this->ratings;
+    }
+
+    public function addRating(Rating $rating): self
+    {
+        if (!$this->ratings->contains($rating)) {
+            $this->ratings[] = $rating;
+            $rating->setAnime($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRating(Rating $rating): self
+    {
+        if ($this->ratings->removeElement($rating)) {
+            // set the owning side to null (unless already changed)
+            if ($rating->getAnime() === $this) {
+                $rating->setAnime(null);
+            }
+        }
 
         return $this;
     }
