@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AnimeController extends AbstractController
 {
+
     /**
      * @Route("/anime", name="anime")
      */
@@ -29,6 +30,7 @@ class AnimeController extends AbstractController
      * @param $id
      * @param Kodik $kodik
      * @param AnimeRepository $animeRepository
+     * @param EntityManager $entityManager
      * @return Response
      */
     public function animePlayer($id, Kodik $kodik, AnimeRepository $animeRepository): Response
@@ -52,6 +54,8 @@ class AnimeController extends AbstractController
      */
     private function getRenderInfoAction(Anime $anime, Kodik $kodik): array
     {
+        $this->addViewAction($anime);
+
         return [
             'anime' => $anime,
             'player' => $kodik->getPlayer($anime->getKodikId(), $anime->getIdList())
@@ -64,6 +68,19 @@ class AnimeController extends AbstractController
     private function getAllAnime(): array
     {
         return $this->getDoctrine()->getRepository(Anime::class)->findAll();
+    }
+
+    /**
+     * @param Anime $anime
+     */
+    private function addViewAction(Anime $anime)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $anime->addView();
+
+        $entityManager->persist($anime);
+        $entityManager->flush();
     }
 
     /**

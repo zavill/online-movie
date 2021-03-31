@@ -444,4 +444,11 @@ class Anime
         return $this;
     }
 
+    public function addView(): self
+    {
+        $this->views++;
+
+        return $this;
+    }
+
 }
