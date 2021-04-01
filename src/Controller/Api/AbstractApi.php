@@ -20,21 +20,17 @@ abstract class AbstractApi extends AbstractController
 
     protected ?Request $request;
 
-    protected SessionInterface $session;
-
     protected RequestRepository $requestRepository;
 
 
     /**
      * AbstractApi constructor.
      * @param RequestStack $requestStack
-     * @param SessionInterface $session
      * @param RequestRepository $requestRepository
      */
-    public function __construct(RequestStack $requestStack, SessionInterface $session, RequestRepository $requestRepository)
+    public function __construct(RequestStack $requestStack, RequestRepository $requestRepository)
     {
         $this->request = $requestStack->getCurrentRequest();
-        $this->session = $session;
         $this->requestRepository = $requestRepository;
     }
 }
