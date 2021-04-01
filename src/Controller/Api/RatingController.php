@@ -6,6 +6,7 @@ namespace App\Controller\Api;
 
 use App\Entity\Anime;
 use App\Entity\Rating;
+use App\Repository\Api\RequestRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,6 +28,9 @@ class RatingController extends AbstractApi
      */
     public function setRating($id): JsonResponse
     {
+
+        $this->requestRepository->sendRequest('setRating');
+
         $entityManager = $this->getDoctrine()->getManager();
         $ratingValue = (int)$this->request->get('rating');
 
@@ -55,5 +59,10 @@ class RatingController extends AbstractApi
             ['data' => 'Рейтинг успешно добавлен'],
             Response::HTTP_OK
         );
+    }
+
+    private function checkSetRatingTimesAction()
+    {
+
     }
 }
