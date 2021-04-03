@@ -66,7 +66,4 @@ class RatingController extends AbstractApi
         );
     }
 
-    private function checkSetRatingTimesAction()
-    {
-    }
 }
