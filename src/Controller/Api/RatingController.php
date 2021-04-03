@@ -28,7 +28,6 @@ class RatingController extends AbstractApi
      */
     public function setRating($id): JsonResponse
     {
-
         $this->requestRepository->sendRequest('setRating');
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -48,8 +47,14 @@ class RatingController extends AbstractApi
             );
         }
 
-        $rating = new Rating();
-        $rating->setAnime($anime);
+        if (!$rating = $entityManager->getRepository(Rating::class)->findOneBy(
+            ['sesionId' => $this->session->getId()]
+        )) {
+            $rating = new Rating();
+            $rating->setAnime($anime);
+            $rating->setSesionId($this->session->getId());
+        }
+
         $rating->setRatingValue($ratingValue);
 
         $entityManager->persist($rating);
@@ -63,6 +68,5 @@ class RatingController extends AbstractApi
 
     private function checkSetRatingTimesAction()
     {
-
     }
 }
