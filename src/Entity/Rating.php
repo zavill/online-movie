@@ -28,6 +28,12 @@ class Rating
      */
     private $Anime;
 
+    /**
+     * @ORM\Column(type="string")
+     * @todo:Заменить сессию на ID пользователя
+     */
+    private $sesionId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +59,18 @@ class Rating
     public function setAnime(?Anime $Anime): self
     {
         $this->Anime = $Anime;
+
+        return $this;
+    }
+
+    public function getSesionId(): ?string
+    {
+        return $this->sesionId;
+    }
+
+    public function setSesionId(string $sesionId): self
+    {
+        $this->sesionId = $sesionId;
 
         return $this;
     }
