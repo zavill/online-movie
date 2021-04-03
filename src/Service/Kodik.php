@@ -4,7 +4,7 @@
 namespace App\Service;
 
 
-use App\Utils\Cache\Redis;
+use App\Utils\Cache\Cache;
 
 class Kodik
 {
@@ -17,9 +17,9 @@ class Kodik
      */
     public function getPlayer(string $kodikId, array $arIds): string
     {
-        $redisCache = new Redis();
+        $cache = Cache::make('Redis');
 
-        if ($linkPlayer = $redisCache->getValueFromCache($kodikId)) {
+        if ($linkPlayer = $cache->getValueFromCache($kodikId)) {
             return $linkPlayer;
         }
 
@@ -42,7 +42,7 @@ class Kodik
 
         $linkResult = json_decode($response, true)['results'][0]['link'];
 
-        $redisCache->setValueToCache($kodikId, $linkResult);
+        $cache->setValueToCache($kodikId, $linkResult);
 
         return $linkResult;
     }

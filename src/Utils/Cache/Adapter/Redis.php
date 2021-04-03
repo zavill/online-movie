@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Utils\Cache;
+namespace App\Utils\Cache\Adapter;
 
 
 use Symfony\Component\Cache\Adapter\RedisAdapter;
@@ -10,9 +10,9 @@ use Symfony\Component\Cache\Adapter\RedisAdapter;
  * Класс для работы с кэшем Redis
  *
  * Class Redis
- * @package App\Utils\Cache
+ * @package App\Utils\Cache\Adapter
  */
-class Redis implements Cache
+class Redis implements CacheInterface
 {
 
     private $client;
