@@ -22,8 +22,11 @@ class RequestRepository extends ServiceEntityRepository
 
     private ?\Symfony\Component\HttpFoundation\Request $httpRequest;
 
-    public function __construct(ManagerRegistry $registry, EntityManagerInterface $entityManager, RequestStack $requestStack)
-    {
+    public function __construct(
+        ManagerRegistry $registry,
+        EntityManagerInterface $entityManager,
+        RequestStack $requestStack
+    ) {
         $this->entityManager = $entityManager;
         $this->httpRequest = $requestStack->getCurrentRequest();
         parent::__construct($registry, Request::class);
@@ -44,9 +47,9 @@ class RequestRepository extends ServiceEntityRepository
             ->setParameter('userIP', $this->httpRequest->getClientIp())
             ->setParameter('date', new DateTime("-$timer seconds"))
             ->getQuery()
-        ->getScalarResult();
+            ->getScalarResult();
 
-        if(count($requestsCount) < $maxCount) {
+        if (count($requestsCount) < $maxCount) {
             $this->createRequest($name);
         } else {
             $response = new JsonResponse(['error' => 'Превышено количество запросов']);
@@ -58,9 +61,11 @@ class RequestRepository extends ServiceEntityRepository
     private function createRequest(string $name)
     {
         $request = new Request();
+
         $request->setName($name);
         $request->setUserIP($this->httpRequest->getClientIp());
         $request->setSendDate(new DateTime());
+
         $this->entityManager->persist($request);
         $this->entityManager->flush();
     }
