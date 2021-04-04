@@ -140,6 +140,11 @@ class Anime
      */
     private $ratings;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $averageRating = 0.0;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
@@ -483,6 +488,18 @@ class Anime
                 $rating->setAnime(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAverageRating(): ?float
+    {
+        return $this->averageRating;
+    }
+
+    public function setAverageRating(float $averageRating): self
+    {
+        $this->averageRating = $averageRating;
 
         return $this;
     }
