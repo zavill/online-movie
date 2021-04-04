@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Anime;
 use App\Entity\Categories;
+use App\Entity\Rating;
 use App\Repository\AnimeRepository;
 use App\Service\Kodik;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,7 +31,6 @@ class AnimeController extends AbstractController
      * @param $id
      * @param Kodik $kodik
      * @param AnimeRepository $animeRepository
-     * @param EntityManager $entityManager
      * @return Response
      */
     public function animePlayer($id, Kodik $kodik, AnimeRepository $animeRepository): Response
@@ -39,12 +39,9 @@ class AnimeController extends AbstractController
             throw $this->createNotFoundException('Сериал не найден');
         }
 
-        try {
-            $arRender = $this->getRenderInfoAction($anime, $kodik);
-            return $this->render('anime/player.html.twig', $arRender);
-        } catch (\ErrorException $exception) {
-            throw $this->createNotFoundException('Сериал не найден');
-        }
+        $arRender = $this->getRenderInfoAction($anime, $kodik);
+
+        return $this->render('anime/player.html.twig', $arRender);
     }
 
     /**
@@ -56,8 +53,11 @@ class AnimeController extends AbstractController
     {
         $this->addViewAction($anime);
 
+        $ratingRepository = $this->getDoctrine()->getRepository(Rating::class);
+
         return [
             'anime' => $anime,
+            'ratingCount' => $ratingRepository->count(['Anime' => $anime->getId()]),
             'player' => $kodik->getPlayer($anime->getKodikId(), $anime->getIdList())
         ];
     }

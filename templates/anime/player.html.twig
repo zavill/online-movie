@@ -74,12 +74,12 @@
                 </div>
             </div>
         </div>
-{#        <div class="detail-info__rating">#}
-{#            <h2 class="detail-info__rating__header">Рейтинг:</h2>#}
-{#            <div class="detail-info__rating__final">#}
-{#                <span class="detail-info__rating__final__value">7.4 / 10 </span>#}
-{#                <p>Голосов: <span class="detail-info__rating__final_count">256</span></p>#}
-{#            </div>#}
+        <div class="detail-info__rating">
+            <h2 class="detail-info__rating__header">Рейтинг:</h2>
+            <div class="detail-info__rating__final">
+                <span class="detail-info__rating__final__value">{{ anime.averageRating }} / 10 </span>
+                <p>Голосов: <span class="detail-info__rating__final_count">{{ ratingCount }}</span></p>
+            </div>
 {#            <div class="detail-info__rating__stars">#}
 {#                <div class="flex-row">#}
 {#                    <label class="detail-info__rating__stars__star full-star"></label>#}
@@ -95,7 +95,7 @@
 {#                </div>#}
 {#                <p>Оценить:</p>#}
 {#            </div>#}
-{#        </div>#}
+        </div>
         <div class="detail-info__player">
             <iframe src="{{ player }}"
                     id="player-iframe" allowfullscreen="" allow="autoplay *; fullscreen *" width="900" height="420"
@@ -246,5 +246,5 @@
 {#                </div>#}
 {#            </div>#}
 {#        </div>#}
-{#    </div>#}
+    </div>
 {% endblock %}
