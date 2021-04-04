@@ -6,7 +6,6 @@ namespace App\Controller\Api;
 
 use App\Entity\Anime;
 use App\Entity\Rating;
-use App\Repository\Api\RequestRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -60,10 +59,32 @@ class RatingController extends AbstractApi
         $entityManager->persist($rating);
         $entityManager->flush();
 
+        $this->calculateAvgRating($id, $anime);
+
         return new JsonResponse(
             ['data' => 'Рейтинг успешно добавлен'],
             Response::HTTP_OK
         );
+    }
+
+
+    private function calculateAvgRating($id, Anime $anime)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $arRating = $entityManager->getRepository(Rating::class)->findBy(['Anime' => $id]);
+
+        $ratingList = 0;
+
+        foreach ($arRating as $rating) {
+            $ratingList += $rating->getRatingValue();
+        }
+
+        $finalRating = round($ratingList / count($arRating), 2);
+
+        $anime->setAverageRating($finalRating);
+
+        $entityManager->persist($anime);
+        $entityManager->flush();
     }
 
 }
