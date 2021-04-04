@@ -79,7 +79,7 @@ class RatingController extends AbstractApi
             $ratingList += $rating->getRatingValue();
         }
 
-        $finalRating = round($ratingList / count($arRating), 2);
+        $finalRating = round($ratingList / count($arRating), 1);
 
         $anime->setAverageRating($finalRating);
 
