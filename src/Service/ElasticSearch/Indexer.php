@@ -34,7 +34,7 @@ class Indexer
     public function putSerial(Anime $anime): array
     {
         foreach (PropertyMapping::$serialMapping as $property => $typeProperty) {
-            $methodName = 'get'.ucfirst($property);
+            $methodName = 'get' . ucfirst($property);
             $data[$property] = $anime->$methodName();
         }
 
@@ -51,4 +51,25 @@ class Indexer
         return $this->getElastic()->update($arParams);
     }
 
+    public function getSerials(array $arFilter): array
+    {
+        $query = [
+            'index' => 'serial',
+            'body' => [
+                'query' => $this->prepareFilter($arFilter)
+            ]
+        ];
+
+        return $this->getElastic()->search($query);
+    }
+
+    private function prepareFilter(array $arFilter): array
+    {
+        $normalizedFilter = [];
+        foreach ($arFilter as $property => $value) {
+            $normalizedFilter['must']['match'][$property] = $value;
+        }
+
+        return $normalizedFilter ? ['bool' => $normalizedFilter] : ['match_all' => new \stdClass()];
+    }
 }
