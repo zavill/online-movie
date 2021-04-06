@@ -4,7 +4,7 @@
 namespace App\Controller;
 
 
-use App\Service\ElasticSearch\Entities\AnimeIndexer;
+use App\Service\ElasticSearch\Indexer\AnimeIndexer;
 use Elasticsearch\ClientBuilder;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

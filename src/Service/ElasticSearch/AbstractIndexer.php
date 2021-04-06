@@ -5,7 +5,7 @@ namespace App\Service\ElasticSearch;
 
 use Elasticsearch\Client;
 
-abstract class Indexer
+abstract class AbstractIndexer
 {
 
     private Client $elastic;

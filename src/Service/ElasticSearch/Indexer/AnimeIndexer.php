@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Service\ElasticSearch\Entities;
+namespace App\Service\ElasticSearch\Indexer;
 
 
 use App\Service\ElasticSearch\PropertyMapping;
 
-class AnimeIndexer extends EntityIndexer
+class AnimeIndexer extends AbstractEntityIndexer
 {
     protected function initializeEntity()
     {
