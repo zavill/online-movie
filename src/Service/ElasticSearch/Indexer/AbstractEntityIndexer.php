@@ -53,7 +53,7 @@ abstract class AbstractEntityIndexer extends AbstractIndexer
             }
 
             $arParams = [
-                'index' => 'serial',
+                'index' => $this->index,
                 'id' => $entity->getId(),
                 'type' => '_doc',
                 'body' => [
