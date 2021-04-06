@@ -100,7 +100,7 @@ abstract class AbstractEntityIndexer extends AbstractIndexer
      * @param array $arFilter
      * @return array
      */
-    public function search(array $arFilter): array
+    public function search(array $arFilter = []): array
     {
         try {
             if (empty($this->index)) {
