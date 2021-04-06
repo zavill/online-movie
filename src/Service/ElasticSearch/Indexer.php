@@ -5,7 +5,7 @@ namespace App\Service\ElasticSearch;
 
 use Elasticsearch\Client;
 
-class Indexer
+abstract class Indexer
 {
 
     private Client $elastic;
@@ -21,5 +21,15 @@ class Indexer
     public function getElastic(): Client
     {
         return $this->elastic;
+    }
+
+    protected function prepareFilter(array $arFilter): array
+    {
+        $normalizedFilter = [];
+        foreach ($arFilter as $property => $value) {
+            $normalizedFilter['must']['match'][$property] = $value;
+        }
+
+        return $normalizedFilter ? ['bool' => $normalizedFilter] : ['match_all' => new \stdClass()];
     }
 }
