@@ -65,6 +65,7 @@ abstract class EntityIndexer extends Indexer
             return $this->getElastic()->update($arParams);
         } catch (ErrorException $exception) {
             $this->logger->critical($exception->getMessage());
+            return [];
         }
     }
 
@@ -106,6 +107,8 @@ abstract class EntityIndexer extends Indexer
                 throw new ErrorException('Не задан индекс');
             }
 
+            $arResult = [];
+
             $query = [
                 'index' => $this->index,
                 'body' => [
@@ -113,7 +116,14 @@ abstract class EntityIndexer extends Indexer
                 ]
             ];
 
-            return $this->getElastic()->search($query);
+            $result = $this->getElastic()->search($query);
+            
+            if ($result) {
+                foreach ($result['hits']['hits'] as $hit) {
+                    $arResult[] = $hit['_source'];
+                }
+            }
+            return $arResult;
         } catch (ErrorException $exception) {
             $this->logger->critical($exception->getMessage());
             return [];
