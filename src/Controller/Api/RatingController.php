@@ -21,13 +21,19 @@ class RatingController extends AbstractApi
 
     /**
      *
-     * @Route("/set/{id<\d+>}")
-     * @param $id
+     * @Route("/", methods={"POST"})
      * @return JsonResponse
      */
-    public function setRating($id): JsonResponse
+    public function setRating(): JsonResponse
     {
         $this->requestRepository->sendRequest('setRating');
+
+        if (!$serialId = (int)$this->request->get('serialId')) {
+            return new JsonResponse(
+                ['error' => 'Не указан ID сериала'],
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
+        }
 
         $entityManager = $this->getDoctrine()->getManager();
         $ratingValue = (int)$this->request->get('rating');
@@ -39,9 +45,9 @@ class RatingController extends AbstractApi
             );
         }
 
-        if (!$anime = $entityManager->getRepository(Anime::class)->find($id)) {
+        if (!$anime = $entityManager->getRepository(Anime::class)->find($serialId)) {
             return new JsonResponse(
-                ['error' => "Не существует сериала с id $id"],
+                ['error' => "Не существует сериала с id $serialId"],
                 Response::HTTP_NOT_FOUND
             );
         }
@@ -59,10 +65,10 @@ class RatingController extends AbstractApi
         $entityManager->persist($rating);
         $entityManager->flush();
 
-        $this->calculateAvgRating($id, $anime);
+        $this->calculateAvgRating($serialId, $anime);
 
         return new JsonResponse(
-            ['data' => 'Рейтинг успешно добавлен'],
+            ['data' => $rating->getId()],
             Response::HTTP_OK
         );
     }
