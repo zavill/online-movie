@@ -117,13 +117,40 @@ abstract class AbstractEntityIndexer extends AbstractIndexer
             ];
 
             $result = $this->getElastic()->search($query);
-            
+
             if ($result) {
                 foreach ($result['hits']['hits'] as $hit) {
                     $arResult[] = $hit['_source'];
                 }
             }
             return $arResult;
+        } catch (ErrorException $exception) {
+            $this->logger->critical($exception->getMessage());
+            return [];
+        }
+    }
+
+    /**
+     * Удаление элемента из индекса
+     *
+     * @param int $id
+     * @return array
+     */
+    public function delete(int $id): array
+    {
+        try {
+            if (empty($this->index)) {
+                throw new ErrorException('Не задан индекс');
+            } elseif (empty($id)) {
+                throw new ErrorException('Не задан ID элемента');
+            }
+
+            $query = [
+                'index' => $this->index,
+                'id' => $id
+            ];
+
+            return $this->getElastic()->delete($query);
         } catch (ErrorException $exception) {
             $this->logger->critical($exception->getMessage());
             return [];
