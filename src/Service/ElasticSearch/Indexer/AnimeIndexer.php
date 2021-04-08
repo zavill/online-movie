@@ -6,7 +6,7 @@ namespace App\Service\ElasticSearch\Indexer;
 
 use App\Service\ElasticSearch\PropertyMapping;
 
-class AnimeIndexer extends AbstractEntityIndexer
+class AnimeIndexer extends EntityIndexer
 {
     protected function initializeEntity()
     {

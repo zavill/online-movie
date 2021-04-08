@@ -4,12 +4,12 @@
 namespace App\Service\ElasticSearch\Indexer;
 
 
-use App\Service\ElasticSearch\AbstractIndexer;
+use App\Service\ElasticSearch\Indexer;
 use Elasticsearch\Client;
 use ErrorException;
 use Psr\Log\LoggerInterface;
 
-abstract class AbstractEntityIndexer extends AbstractIndexer
+abstract class EntityIndexer extends Indexer
 {
     protected array $mapping;
     protected string $index;
