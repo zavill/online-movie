@@ -35,7 +35,6 @@ class RatingController extends AbstractApi
             );
         }
 
-        $entityManager = $this->getDoctrine()->getManager();
         $ratingValue = (int)$this->request->get('rating');
 
         if ($ratingValue <= 0) {
@@ -45,14 +44,14 @@ class RatingController extends AbstractApi
             );
         }
 
-        if (!$anime = $entityManager->getRepository(Anime::class)->find($serialId)) {
+        if (!$anime = $this->entityManager->getRepository(Anime::class)->find($serialId)) {
             return new JsonResponse(
                 ['error' => "Не существует сериала с id $serialId"],
                 Response::HTTP_NOT_FOUND
             );
         }
 
-        if (!$rating = $entityManager->getRepository(Rating::class)->findOneBy(
+        if (!$rating = $this->entityManager->getRepository(Rating::class)->findOneBy(
             ['sesionId' => $this->session->getId()]
         )) {
             $rating = new Rating();
@@ -62,8 +61,8 @@ class RatingController extends AbstractApi
 
         $rating->setRatingValue($ratingValue);
 
-        $entityManager->persist($rating);
-        $entityManager->flush();
+        $this->entityManager->persist($rating);
+        $this->entityManager->flush();
 
         $this->calculateAvgRating($serialId, $anime);
 
@@ -80,14 +79,12 @@ class RatingController extends AbstractApi
     {
         $this->requestRepository->sendRequest('getOneRating', 30);
 
-        $entityManager = $this->getDoctrine()->getManager();
-
         if (!$ratingId = $this->request->get('id')) {
             return new JsonResponse(
                 ['error' => 'Не передан ID оценки'],
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
-        } elseif (!$rating = $entityManager->getRepository(Rating::class)->find($ratingId)) {
+        } elseif (!$rating = $this->entityManager->getRepository(Rating::class)->find($ratingId)) {
             return new JsonResponse(
                 ['error' => 'Не найдена оценка с указанным ID'],
                 Response::HTTP_NOT_FOUND
@@ -103,8 +100,7 @@ class RatingController extends AbstractApi
 
     private function calculateAvgRating($id, Anime $anime)
     {
-        $entityManager = $this->getDoctrine()->getManager();
-        $arRating = $entityManager->getRepository(Rating::class)->findBy(['Anime' => $id]);
+        $arRating = $this->entityManager->getRepository(Rating::class)->findBy(['Anime' => $id]);
 
         $ratingList = 0;
 
@@ -116,8 +112,8 @@ class RatingController extends AbstractApi
 
         $anime->setAverageRating($finalRating);
 
-        $entityManager->persist($anime);
-        $entityManager->flush();
+        $this->entityManager->persist($anime);
+        $this->entityManager->flush();
     }
 
 }

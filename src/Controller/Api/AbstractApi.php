@@ -4,8 +4,8 @@
 namespace App\Controller\Api;
 
 use App\Repository\Api\RequestRepository;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -24,6 +24,8 @@ abstract class AbstractApi extends AbstractController
 
     protected SessionInterface $session;
 
+    protected ObjectManager $entityManager;
+
     /**
      * AbstractApi constructor.
      * @param RequestStack $requestStack
@@ -37,6 +39,8 @@ abstract class AbstractApi extends AbstractController
     ) {
         $this->request = $requestStack->getCurrentRequest();
         $this->requestRepository = $requestRepository;
+
+        $this->entityManager = $this->getDoctrine()->getManager();
 
         $this->session = $session;
         $this->session->start();
