@@ -73,7 +73,7 @@ class RatingController extends AbstractApi
     }
 
     /**
-     * @Route("/", methods={GET})
+     * @Route("/", methods={"GET"})
      */
     public function getOne(): JsonResponse
     {
