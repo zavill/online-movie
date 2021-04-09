@@ -4,6 +4,7 @@
 namespace App\Controller\Api;
 
 use App\Repository\Api\RequestRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,16 +32,18 @@ abstract class AbstractApi extends AbstractController
      * @param RequestStack $requestStack
      * @param RequestRepository $requestRepository
      * @param SessionInterface $session
+     * @param EntityManagerInterface $entityManager
      */
     public function __construct(
         RequestStack $requestStack,
         RequestRepository $requestRepository,
-        SessionInterface $session
+        SessionInterface $session,
+        EntityManagerInterface $entityManager
     ) {
         $this->request = $requestStack->getCurrentRequest();
         $this->requestRepository = $requestRepository;
 
-        $this->entityManager = $this->getDoctrine()->getManager();
+        $this->entityManager = $entityManager;
 
         $this->session = $session;
         $this->session->start();
