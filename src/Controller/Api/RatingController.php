@@ -79,7 +79,7 @@ class RatingController extends AbstractApi
     {
         $this->requestRepository->sendRequest('getOneRating', 30);
 
-        if (!$ratingId = $this->request->get('id')) {
+        if (!$ratingId = (int)$this->request->get('id')) {
             return new JsonResponse(
                 ['error' => 'Не передан ID оценки'],
                 Response::HTTP_UNPROCESSABLE_ENTITY
