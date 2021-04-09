@@ -74,4 +74,13 @@ class Rating
 
         return $this;
     }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'ratingValue' => $this->getRatingValue(),
+            'animeId' => $this->getAnime()->getId()
+        ];
+    }
 }

@@ -92,7 +92,7 @@ class RatingController extends AbstractApi
         }
 
         return new JsonResponse(
-            ['data' => $rating],
+            ['data' => $rating->jsonSerialize()],
             Response::HTTP_OK
         );
     }
