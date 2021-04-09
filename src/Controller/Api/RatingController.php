@@ -24,7 +24,7 @@ class RatingController extends AbstractApi
      * @Route("/", methods={"POST"})
      * @return JsonResponse
      */
-    public function setRating(): JsonResponse
+    public function set(): JsonResponse
     {
         $this->requestRepository->sendRequest('setRating');
 
@@ -69,6 +69,33 @@ class RatingController extends AbstractApi
 
         return new JsonResponse(
             ['data' => $rating->getId()],
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * @Route("/", methods={GET})
+     */
+    public function getOne(): JsonResponse
+    {
+        $this->requestRepository->sendRequest('getOneRating', 30);
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        if (!$ratingId = $this->request->get('id')) {
+            return new JsonResponse(
+                ['error' => 'Не передан ID оценки'],
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
+        } elseif (!$rating = $entityManager->getRepository(Rating::class)->find($ratingId)) {
+            return new JsonResponse(
+                ['error' => 'Не найдена оценка с указанным ID'],
+                Response::HTTP_NOT_FOUND
+            );
+        }
+
+        return new JsonResponse(
+            ['data' => $rating],
             Response::HTTP_OK
         );
     }
