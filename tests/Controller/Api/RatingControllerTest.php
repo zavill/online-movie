@@ -27,4 +27,21 @@ class RatingControllerTest extends WebTestCase
         $client->request('POST', '/api/rating/', ['serialId' => 2, 'rating' => 5]);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
+
+    public function testGet()
+    {
+        $client = static::createClient();
+
+        /* Запрос без указания значений */
+        $client->request('GET', '/api/rating/', []);
+        $this->assertEquals(422, $client->getResponse()->getStatusCode());
+
+        /* Запрос с несуществующим значением */
+        $client->request('GET', '/api/rating/', ['id' => 99999]);
+        $this->assertEquals(404, $client->getResponse()->getStatusCode());
+
+        /* Запрос с существующими правильными значениями */
+        $client->request('GET', '/api/rating/', ['id' => 15]);
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
 }
