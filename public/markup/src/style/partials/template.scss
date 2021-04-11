@@ -36,3 +36,11 @@ button {
   border-radius: 5px;
   font-size: 18px;
 }
+
+.full-star {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M10.97 1.04l2.25 4.57c.16.32.46.54.81.59l5.05.73c.88.13 1.23 1.21.6 1.84l-3.66 3.55c-.25.25-.37.6-.3.96l.86 5.02c.15.88-.78 1.55-1.57 1.14l-4.5-2.37a1.08 1.08 0 00-1.01 0l-4.51 2.37a1.08 1.08 0 01-1.57-1.14l.87-5.02c.06-.35-.06-.7-.31-.96L.33 8.77c-.64-.63-.29-1.71.6-1.84l5.04-.73c.35-.05.65-.27.8-.6l2.26-4.56c.4-.8 1.54-.8 1.94 0z' fill='%23FFC700'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Cpath fill='%23fff' d='M0 0h20v20H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") !important;
+  height: 27px;
+  width: 27px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
