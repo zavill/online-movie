@@ -1,0 +1,19 @@
+.anime-section {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    padding-top: 19px;
+    font-size: 42px;
+    margin-bottom: 15px;
+  }
+
+  &__sort {
+    display: flex;
+    align-items: center;
+
+    select {
+      margin-left: 10px;
+    }
+  }
+}

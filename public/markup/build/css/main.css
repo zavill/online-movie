@@ -34,6 +34,13 @@ button {
   border-radius: 5px;
   font-size: 18px; }
 
+.full-star {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M10.97 1.04l2.25 4.57c.16.32.46.54.81.59l5.05.73c.88.13 1.23 1.21.6 1.84l-3.66 3.55c-.25.25-.37.6-.3.96l.86 5.02c.15.88-.78 1.55-1.57 1.14l-4.5-2.37a1.08 1.08 0 00-1.01 0l-4.51 2.37a1.08 1.08 0 01-1.57-1.14l.87-5.02c.06-.35-.06-.7-.31-.96L.33 8.77c-.64-.63-.29-1.71.6-1.84l5.04-.73c.35-.05.65-.27.8-.6l2.26-4.56c.4-.8 1.54-.8 1.94 0z' fill='%23FFC700'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Cpath fill='%23fff' d='M0 0h20v20H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") !important;
+  height: 27px;
+  width: 27px;
+  background-size: contain;
+  background-repeat: no-repeat; }
+
 /* Хидер/футер */
 footer {
   background-color: #111119; }
@@ -314,9 +321,6 @@ header {
     flex-direction: column;
     margin-top: 25px; }
 
-.full-star {
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M10.97 1.04l2.25 4.57c.16.32.46.54.81.59l5.05.73c.88.13 1.23 1.21.6 1.84l-3.66 3.55c-.25.25-.37.6-.3.96l.86 5.02c.15.88-.78 1.55-1.57 1.14l-4.5-2.37a1.08 1.08 0 00-1.01 0l-4.51 2.37a1.08 1.08 0 01-1.57-1.14l.87-5.02c.06-.35-.06-.7-.31-.96L.33 8.77c-.64-.63-.29-1.71.6-1.84l5.04-.73c.35-.05.65-.27.8-.6l2.26-4.56c.4-.8 1.54-.8 1.94 0z' fill='%23FFC700'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Cpath fill='%23fff' d='M0 0h20v20H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") !important; }
-
 .graphic-series__header {
   align-self: baseline;
   margin-bottom: 26px; }
@@ -396,4 +400,89 @@ header {
 
 .bad-rating {
   color: #f25f59 !important; }
+
+.anime-section {
+  display: flex;
+  flex-direction: column; }
+  .anime-section__header {
+    padding-top: 19px;
+    font-size: 42px;
+    margin-bottom: 15px; }
+  .anime-section__sort {
+    display: flex;
+    align-items: center; }
+    .anime-section__sort select {
+      margin-left: 10px; }
+
+.anime-item {
+  margin-top: 41px;
+  display: flex; }
+  .anime-item__detail {
+    max-width: 560px;
+    margin-left: 21px; }
+  .anime-item__detail * {
+    margin-top: 14px; }
+  .anime-item__main-info {
+    font-weight: normal;
+    letter-spacing: 0.001em; }
+  .anime-item__poster {
+    position: relative; }
+
+.rate-flag {
+  position: absolute;
+  top: 10px;
+  left: -4px; }
+  .rate-flag__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    color: #111;
+    position: relative;
+    overflow: hidden;
+    padding: 4px 8px 4px 6px;
+    z-index: 6; }
+  .rate-flag__text {
+    margin-left: 5px; }
+  .rate-flag__inner:before {
+    border-top: 20px solid #26304e;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+  .rate-flag__inner:after {
+    top: 50%;
+    border-bottom: 20px solid #26304e;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+
+.rate-flag:before {
+  content: '';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  z-index: 6;
+  bottom: -7px;
+  left: 0;
+  border-top: 7px solid #26304e;
+  border-left: 4px solid transparent;
+  width: 0;
+  height: 0; }
 /*# sourceMappingURL=main.css.map */

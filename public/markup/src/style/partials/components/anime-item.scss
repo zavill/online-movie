@@ -1,0 +1,88 @@
+.anime-item {
+  margin-top: 41px;
+  display: flex;
+  &__detail {
+    max-width: 560px;
+    margin-left: 21px;
+  }
+
+  &__detail * {
+    margin-top: 14px;
+  }
+
+  &__main-info {
+    font-weight: normal;
+    letter-spacing: 0.001em;
+  }
+
+  &__poster {
+    position: relative;
+  }
+}
+
+.rate-flag {
+  position: absolute;
+  top: 10px;
+  left: -4px;
+
+  &__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    color: #111;
+    position: relative;
+    overflow: hidden;
+    padding: 4px 8px 4px 6px;
+    z-index: 6;
+  }
+
+  &__text {
+    margin-left: 5px;
+  }
+
+  &__inner:before {
+    border-top: 20px solid #26304e;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  &__inner:after {
+    top: 50%;
+    border-bottom: 20px solid #26304e;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+.rate-flag:before {
+  content: '';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  z-index: 6;
+  bottom: -7px;
+  left: 0;
+  border-top: 7px solid #26304e;
+  border-left: 4px solid transparent;
+  width: 0;
+  height: 0;
+}
