@@ -145,10 +145,16 @@ class Anime
      */
     private $averageRating = 0.0;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Screenshot::class, mappedBy="Anime")
+     */
+    private $screenshots;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->ratings = new ArrayCollection();
+        $this->screenshots = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -500,6 +506,36 @@ class Anime
     public function setAverageRating(float $averageRating): self
     {
         $this->averageRating = $averageRating;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Screenshot[]
+     */
+    public function getScreenshots(): Collection
+    {
+        return $this->screenshots;
+    }
+
+    public function addScreenshot(Screenshot $screenshot): self
+    {
+        if (!$this->screenshots->contains($screenshot)) {
+            $this->screenshots[] = $screenshot;
+            $screenshot->setAnime($this);
+        }
+
+        return $this;
+    }
+
+    public function removeScreenshot(Screenshot $screenshot): self
+    {
+        if ($this->screenshots->removeElement($screenshot)) {
+            // set the owning side to null (unless already changed)
+            if ($screenshot->getAnime() === $this) {
+                $screenshot->setAnime(null);
+            }
+        }
 
         return $this;
     }
