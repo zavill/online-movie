@@ -13,10 +13,10 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/rating")
  *
- * Class RatingController
+ * Class RatingAPIController
  * @package App\Controller\Api
  */
-class RatingController extends AbstractApi
+class RatingAPIController extends AbstractApi
 {
 
     /**
@@ -73,18 +73,18 @@ class RatingController extends AbstractApi
     }
 
     /**
-     * @Route("/", methods={"GET"})
+     * @Route("/{id}", methods={"GET"})
      */
-    public function getOne(): JsonResponse
+    public function getOne(int $id): JsonResponse
     {
         $this->requestRepository->sendRequest('getOneRating', 30);
 
-        if (!$ratingId = (int)$this->request->get('id')) {
+        if (empty($id)) {
             return new JsonResponse(
                 ['error' => 'Не передан ID оценки'],
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
-        } elseif (!$rating = $this->entityManager->getRepository(Rating::class)->find($ratingId)) {
+        } elseif (!$rating = $this->entityManager->getRepository(Rating::class)->find($id)) {
             return new JsonResponse(
                 ['error' => 'Не найдена оценка с указанным ID'],
                 Response::HTTP_NOT_FOUND

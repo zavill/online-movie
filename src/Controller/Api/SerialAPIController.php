@@ -11,10 +11,10 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/serial")
  *
- * Class SerialApiController
+ * Class SerialAPIController
  * @package App\Controller\Api
  */
-class SerialApiController extends AbstractApi
+class SerialAPIController extends AbstractApi
 {
 
     /**
