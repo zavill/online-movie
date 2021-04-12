@@ -9,17 +9,18 @@
                 <div class="detail-info__images__poster">
                     <img src="{{ anime.posterURL }}" height="310" width="230">
                 </div>
-                {# <div class="detail-info__images__frames"> #}
-                {# <div class="detail-info__images__frames__header"> #}
-                {# <h2>Кадры из аниме:</h2> #}
-                {# </div> #}
-                {# <div class="detail-info__images__frames__images"> #}
-                {# <img src="img/anime_frame.png"> #}
-                {# <img src="img/anime_frame.png"> #}
-                {# <img src="img/anime_frame.png"> #}
-                {# <img src="img/anime_frame.png"> #}
-                {# </div> #}
-                {# </div> #}
+                {% if anime.screenshots|length %}
+                <div class="detail-info__images__frames">
+                    <div class="detail-info__images__frames__header">
+                        <h2>Кадры из аниме:</h2>
+                    </div>
+                    <div class="detail-info__images__frames__images">
+                        {% for screenshot in anime.screenshots %}
+                            <img src="{{ screenshot.url }}">
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
             <div class="detail-info__text">
                 <h1 class="detail-info__text__header">{{ anime.name }}</h1>

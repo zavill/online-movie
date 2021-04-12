@@ -25,6 +25,8 @@
         img {
           padding-bottom: 1px;
           padding-top: 1px;
+          width: 114px;
+          height: 64px;
         }
 
         img:nth-child(2n) {
@@ -71,7 +73,7 @@
     }
 
     &__description {
-      margin-top: 60px;
+      margin-top: 20px;
       &__header {
         margin-bottom: 29px;
       }

@@ -251,7 +251,9 @@ header {
         flex-wrap: wrap; }
         .detail-info__images__frames__images img {
           padding-bottom: 1px;
-          padding-top: 1px; }
+          padding-top: 1px;
+          width: 114px;
+          height: 64px; }
         .detail-info__images__frames__images img:nth-child(2n) {
           padding-left: 2px; }
   .detail-info__text {
@@ -281,7 +283,7 @@ header {
           text-align: left;
           padding-left: 9%; }
     .detail-info__text__description {
-      margin-top: 60px; }
+      margin-top: 20px; }
       .detail-info__text__description__header {
         margin-bottom: 29px; }
       .detail-info__text__description__text {
