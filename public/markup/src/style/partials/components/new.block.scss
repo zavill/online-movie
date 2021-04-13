@@ -18,6 +18,12 @@
     }
     &__item {
       margin-right: 53px;
+
+      img {
+        width: 230px;
+        height: 310px;
+      }
+
       @media (max-width: 998px) {
         margin-bottom: 30px;
         margin-right: 0 !important;

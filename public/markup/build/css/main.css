@@ -144,6 +144,9 @@ header {
         align-items: center; } }
     .new-block__section__item {
       margin-right: 53px; }
+      .new-block__section__item img {
+        width: 230px;
+        height: 310px; }
       @media (max-width: 998px) {
         .new-block__section__item {
           margin-bottom: 30px;
