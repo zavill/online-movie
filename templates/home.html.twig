@@ -30,34 +30,15 @@
                     <h2>НОВИНКИ</h2>
                 </div>
                 <div class="new-block__section">
-                    <div class="new-block__section__item">
-                        <img src="/public/markup/build/img/anime_new.png">
-                        <div class="new-block__section__item__header">
-                            <h2>КВАРТЕТ ИСЭКАЙ</h2>
-                            <h3>Isekai Quartet</h3>
+                    {% for serial in recommendations %}
+                        <div class="new-block__section__item">
+                            <img src="{{ serial.posterURL }}">
+                            <div class="new-block__section__item__header">
+                                <h2>{{ serial.name }}</h2>
+                                <h3>{{ serial.nameOrig }}</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="new-block__section__item">
-                        <img src="/public/markup/build/img/anime_new.png">
-                        <div class="new-block__section__item__header">
-                            <h2>КВАРТЕТ ИСЭКАЙ</h2>
-                            <h3>Isekai Quartet</h3>
-                        </div>
-                    </div>
-                    <div class="new-block__section__item">
-                        <img src="/public/markup/build/img/anime_new.png">
-                        <div class="new-block__section__item__header">
-                            <h2>КВАРТЕТ ИСЭКАЙ</h2>
-                            <h3>Isekai Quartet</h3>
-                        </div>
-                    </div>
-                    <div class="new-block__section__item">
-                        <img src="/public/markup/build/img/anime_new.png">
-                        <div class="new-block__section__item__header">
-                            <h2>КВАРТЕТ ИСЭКАЙ</h2>
-                            <h3>Isekai Quartet</h3>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -71,7 +52,8 @@
                     </div>
                     <div class="anime-list__block__section">
                         <div class="anime-list__block__section__item">
-                            <img src="/public/markup/build/img/anime_list.png" class="anime-list__block__section__item__image">
+                            <img src="/public/markup/build/img/anime_list.png"
+                                 class="anime-list__block__section__item__image">
                             <div class="anime-list__block__section__item__detail">
                                 <div class="anime-list__block__section__item__detail__header">
                                     <h2>КВАРТЕТ ИСЭКАЙ</h2>
@@ -91,7 +73,8 @@
                             </div>
                         </div>
                         <div class="anime-list__block__section__item">
-                            <img src="/public/markup/build/img/anime_list.png" class="anime-list__block__section__item__image">
+                            <img src="/public/markup/build/img/anime_list.png"
+                                 class="anime-list__block__section__item__image">
                             <div class="anime-list__block__section__item__detail">
                                 <div class="anime-list__block__section__item__detail__header">
                                     <h2>КВАРТЕТ ИСЭКАЙ</h2>
@@ -111,7 +94,8 @@
                             </div>
                         </div>
                         <div class="anime-list__block__section__item">
-                            <img src="/public/markup/build/img/anime_list.png" class="anime-list__block__section__item__image">
+                            <img src="/public/markup/build/img/anime_list.png"
+                                 class="anime-list__block__section__item__image">
                             <div class="anime-list__block__section__item__detail">
                                 <div class="anime-list__block__section__item__detail__header">
                                     <h2>КВАРТЕТ ИСЭКАЙ</h2>
