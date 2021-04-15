@@ -84,7 +84,7 @@
             <div class="detail-info__rating__stars">
                 <div class="flex-row">
                     {% for i in 0..9 %}
-                        <label class="detail-info__rating__stars__star {% if anime.averageRating > i + 1 %} full-star {% endif %}"></label>
+                        <label class="detail-info__rating__stars__star {% if anime.averageRating >= i + 1 %} full-star {% endif %}"></label>
                     {% endfor %}
                 </div>
                 <p>Оценить:</p>
