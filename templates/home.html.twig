@@ -33,12 +33,12 @@
                     <div class="new-block__section">
                         {% for serial in newSerials %}
                             <div class="new-block__section__item">
-                                <a href="/anime/{{ serial.id }}">
+                                <a href="{{ url('anime_player', {id: serial.id}) }}">
                                     <img src="{{ serial.posterURL }}">
                                 </a>
                                 <div class="new-block__section__item__header">
-                                    <h2><a href="/anime/{{ serial.id }}">{{ serial.name }}</a></h2>
-                                    <h3><a href="/anime/{{ serial.id }}">{{ serial.nameOrig }}</a></h3>
+                                    <h2><a href="{{ url('anime_player', {id: serial.id}) }}">{{ serial.name }}</a></h2>
+                                    <h3><a href="{{ url('anime_player', {id: serial.id}) }}">{{ serial.nameOrig }}</a></h3>
                                 </div>
                             </div>
                         {% endfor %}
@@ -57,13 +57,16 @@
                     <div class="anime-list__block__section">
                         {% for serial in recommendations %}
                             <div class="anime-list__block__section__item">
-                                <a href="/anime/{{ serial.id }}">
+                                <a href="{{ url('anime_player', {id: serial.id}) }}">
                                     <img src="{{ serial.posterURL }}" class="anime-list__block__section__item__image">
                                 </a>
                                 <div class="anime-list__block__section__item__detail">
                                     <div class="anime-list__block__section__item__detail__header">
-                                        <h2><a href="/anime/{{ serial.id }}">{{ serial.name }}</a></h2>
-                                        <h2><a href="/anime/{{ serial.id }}">{{ serial.nameOrig }}</a></h2>
+                                        <h2><a href="{{ url('anime_player', {id: serial.id}) }}">{{ serial.name }}</a>
+                                        </h2>
+                                        <h2>
+                                            <a href="{{ url('anime_player', {id: serial.id}) }}">{{ serial.nameOrig }}</a>
+                                        </h2>
                                     </div>
                                     <div class="anime-list__block__section__item__detail__genre">
                                         <h3>ЖАНРЫ:
