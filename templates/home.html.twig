@@ -24,26 +24,26 @@
         </div>
     </div>
     {% if newSerials|length %}
-    <div class="new-block">
-        <div class="__container">
-            <div class="lamp-content">
-                <div class="new-block__header">
-                    <h2>НОВИНКИ</h2>
-                </div>
-                <div class="new-block__section">
-                    {% for serial in newSerials %}
-                        <div class="new-block__section__item">
-                            <img src="{{ serial.posterURL }}">
-                            <div class="new-block__section__item__header">
-                                <h2>{{ serial.name }}</h2>
-                                <h3>{{ serial.nameOrig }}</h3>
+        <div class="new-block">
+            <div class="__container">
+                <div class="lamp-content">
+                    <div class="new-block__header">
+                        <h2>НОВИНКИ</h2>
+                    </div>
+                    <div class="new-block__section">
+                        {% for serial in newSerials %}
+                            <div class="new-block__section__item">
+                                <img src="{{ serial.posterURL }}">
+                                <div class="new-block__section__item__header">
+                                    <h2>{{ serial.name }}</h2>
+                                    <h3>{{ serial.nameOrig }}</h3>
+                                </div>
                             </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     {% endif %}
     <div class="anime-list__block">
         <div class="__container">
@@ -53,69 +53,28 @@
                         <h2>СПИСОК АНИМЕ</h2>
                     </div>
                     <div class="anime-list__block__section">
-                        <div class="anime-list__block__section__item">
-                            <img src="/public/markup/build/img/anime_list.png"
-                                 class="anime-list__block__section__item__image">
-                            <div class="anime-list__block__section__item__detail">
-                                <div class="anime-list__block__section__item__detail__header">
-                                    <h2>КВАРТЕТ ИСЭКАЙ</h2>
-                                    <h2>Isekai Quartet</h2>
-                                </div>
-                                <div class="anime-list__block__section__item__detail__genre">
-                                    <h3>ЖАНРЫ: АНИМЕ</h3>
-                                </div>
-                                <div class="anime-list__block__section__item__detail__description">
-                                    <h3>Аниме-сериал режиссёра Минору Асины, снятый им на студии Studio Puyukai и
-                                        транслировавшийся на различных телеканалах Японии с 9 апреля 2019 года.
-                                        Мультфильм
-                                        является кроссовером четырёх ранобэ жанра исэкай, выпускающихся издательством
-                                        Kadokawa
-                                        Shoten </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="anime-list__block__section__item">
-                            <img src="/public/markup/build/img/anime_list.png"
-                                 class="anime-list__block__section__item__image">
-                            <div class="anime-list__block__section__item__detail">
-                                <div class="anime-list__block__section__item__detail__header">
-                                    <h2>КВАРТЕТ ИСЭКАЙ</h2>
-                                    <h2>Isekai Quartet</h2>
-                                </div>
-                                <div class="anime-list__block__section__item__detail__genre">
-                                    <h3>ЖАНРЫ: АНИМЕ</h3>
-                                </div>
-                                <div class="anime-list__block__section__item__detail__description">
-                                    <h3>Аниме-сериал режиссёра Минору Асины, снятый им на студии Studio Puyukai и
-                                        транслировавшийся на различных телеканалах Японии с 9 апреля 2019 года.
-                                        Мультфильм
-                                        является кроссовером четырёх ранобэ жанра исэкай, выпускающихся издательством
-                                        Kadokawa
-                                        Shoten </h3>
+                        {% for serial in recommendations %}
+                            <div class="anime-list__block__section__item">
+                                <img src="{{ serial.posterURL }}"
+                                     class="anime-list__block__section__item__image">
+                                <div class="anime-list__block__section__item__detail">
+                                    <div class="anime-list__block__section__item__detail__header">
+                                        <h2>{{ serial.name }}</h2>
+                                        <h2>{{ serial.nameOrig }}</h2>
+                                    </div>
+                                    <div class="anime-list__block__section__item__detail__genre">
+                                        <h3>ЖАНРЫ:
+                                            {% for genre in serial.category %}
+                                                {{ genre.name }}{% if not loop.last %},{% endif %}
+                                            {% endfor %}
+                                        </h3>
+                                    </div>
+                                    <div class="anime-list__block__section__item__detail__description">
+                                        <h3>{{ serial.shortDescription }}</h3>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="anime-list__block__section__item">
-                            <img src="/public/markup/build/img/anime_list.png"
-                                 class="anime-list__block__section__item__image">
-                            <div class="anime-list__block__section__item__detail">
-                                <div class="anime-list__block__section__item__detail__header">
-                                    <h2>КВАРТЕТ ИСЭКАЙ</h2>
-                                    <h2>Isekai Quartet</h2>
-                                </div>
-                                <div class="anime-list__block__section__item__detail__genre">
-                                    <h3>ЖАНРЫ: АНИМЕ</h3>
-                                </div>
-                                <div class="anime-list__block__section__item__detail__description">
-                                    <h3>Аниме-сериал режиссёра Минору Асины, снятый им на студии Studio Puyukai и
-                                        транслировавшийся на различных телеканалах Японии с 9 апреля 2019 года.
-                                        Мультфильм
-                                        является кроссовером четырёх ранобэ жанра исэкай, выпускающихся издательством
-                                        Kadokawa
-                                        Shoten </h3>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div class="anime-list__block__container">
                         <button class="anime-list__block__container__button"><a href="#">Полный список аниме</a>

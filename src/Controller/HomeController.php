@@ -19,6 +19,7 @@ class HomeController extends AbstractController
     public function index(AnimeRepository $animeRepository): Response
     {
         $arRenderer['newSerials'] = $animeRepository->getNewAnime();
+        $arRenderer['recommendations'] = $animeRepository->getRecommendations();
         return $this->render('home.html.twig', $arRenderer);
     }
 }
