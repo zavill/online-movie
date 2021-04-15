@@ -40,7 +40,7 @@ class Kodik
         $response = curl_exec($curl);
         curl_close($curl);
 
-        $linkResult = json_decode($response, true)['results'][0]['link'];
+        $linkResult = json_decode($response, true)['results'][0]['link'].'?only_translations=1720';
 
         $cache->setValueToCache($kodikId, $linkResult);
 
