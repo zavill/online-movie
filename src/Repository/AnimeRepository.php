@@ -34,6 +34,10 @@ class AnimeRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function getNewAnime($limit = 4)
+    {
+        return parent::findBy([], ['createdAt' => 'DESC'], $limit);
+    }
     // /**
     //  * @return Anime[] Returns an array of Anime objects
     //  */

@@ -23,6 +23,7 @@
             </div>
         </div>
     </div>
+    {% if newSerials|length %}
     <div class="new-block">
         <div class="__container">
             <div class="lamp-content">
@@ -30,7 +31,7 @@
                     <h2>НОВИНКИ</h2>
                 </div>
                 <div class="new-block__section">
-                    {% for serial in recommendations %}
+                    {% for serial in newSerials %}
                         <div class="new-block__section__item">
                             <img src="{{ serial.posterURL }}">
                             <div class="new-block__section__item__header">
@@ -43,6 +44,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
     <div class="anime-list__block">
         <div class="__container">
             <div class="flex-row">
