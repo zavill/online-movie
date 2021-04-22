@@ -17,6 +17,10 @@
 
   &__poster {
     position: relative;
+    img {
+      max-height: 310px;
+      max-width: 230px;
+    }
   }
 }
 

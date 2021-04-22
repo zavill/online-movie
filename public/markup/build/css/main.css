@@ -432,6 +432,9 @@ header {
     letter-spacing: 0.001em; }
   .anime-item__poster {
     position: relative; }
+    .anime-item__poster img {
+      max-height: 310px;
+      max-width: 230px; }
 
 .rate-flag {
   position: absolute;
