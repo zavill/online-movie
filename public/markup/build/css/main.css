@@ -417,7 +417,14 @@ header {
     display: flex;
     align-items: center; }
     .anime-section__sort select {
-      margin-left: 10px; }
+      margin-left: 10px;
+      max-width: 200px;
+      height: 31px;
+      width: 100%;
+      background-color: #2d334e;
+      border: 0;
+      color: white;
+      border-radius: 7px 7px 7px 7px; }
 
 .anime-item {
   margin-top: 41px;
