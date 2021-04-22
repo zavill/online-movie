@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Список Аниме {% endblock %}
+
+{% block body %}
+    <div class="__container">
+        <h1 class="anime-section__header">Список аниме</h1>
+        <div class="anime-section__sort">
+            <p>Сортировать по:</p>
+            <select>
+                <option>Дате добавления</option>
+            </select>
+        </div>
+        <div class="flex-row">
+            <div class="anime-section">
+                {% for anime in animeList %}
+                    <div class="anime-item">
+                        <div class="anime-item__poster">
+                            <img src="{{ anime.posterURL }}">
+                            <div class="rate-flag">
+                                <div class="rate-flag__inner">
+                                    <div class="full-star blue-svg"></div>
+                                    <div class="rate-flag__text">{{ anime.averageRating }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="anime-item__detail">
+                            <h2 class="anime-item__header">{{ anime.name }}</h2>
+                            <p>{{ anime.nameOrig }}</p>
+                            <div class="anime-item__info">
+                                <h2 class="anime-item__main-info">{{ anime.type }} / {{ anime.year }}
+                                    / {% for genre in anime.category %}
+                                        {{ genre.name }}{% if not loop.last %},{% endif %}
+                                    {% endfor %}</h2>
+                            </div>
+                            <div class="anime-item__description">
+                                {{ anime.shortDescription }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="anime-list__block__filter">
+                <div class="anime-list__block__filter__header-block">
+                    <h3>ФИЛЬТР</h3>
+                    <div class="anime-list__block__filter__header-block__figure-up"></div>
+                </div>
+                <div class="anime-list__block__filter__container">
+                    <div class="anime-list__block__filter__container__item">
+                        <div class="anime-list__block__filter__container__item__header">
+                            <p>Жанры</p>
+                        </div>
+                        <div class="anime-list__block__filter__container__item__select">
+                            <select>
+                                <option selected disabled>Выберите жанр</option>
+                                <option>Аниме</option>
+                                <option>Аниме</option>
+                                <option>Аниме</option>
+                                <option>Аниме</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="anime-list__block__filter__container__item">
+                        <div class="anime-list__block__filter__container__item__header">
+                            <p>Жанры</p>
+                        </div>
+                        <div class="anime-list__block__filter__container__item__select">
+                            <select>
+                                <option selected disabled>Выберите жанр</option>
+                                <option>Аниме</option>
+                                <option>Аниме</option>
+                                <option>Аниме</option>
+                                <option>Аниме</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="anime-list__block__filter__container__item">
+                        <div class="anime-list__block__filter__container__item__header">
+                            <p>Жанры</p>
+                        </div>
+                        <div class="anime-list__block__filter__container__item__select">
+                            <select>
+                                <option selected disabled>Выберите жанр</option>
+                                <option>Аниме</option>
+                                <option>Аниме</option>
+                                <option>Аниме</option>
+                                <option>Аниме</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="anime-list__block__filter__container__item">
+                        <div class="anime-list__block__filter__container__item__header">
+                            <p>Жанры</p>
+                        </div>
+                        <div class="anime-list__block__filter__container__item__select">
+                            <select>
+                                <option selected disabled>Выберите жанр</option>
+                                <option>Аниме</option>
+                                <option>Аниме</option>
+                                <option>Аниме</option>
+                                <option>Аниме</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

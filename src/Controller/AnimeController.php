@@ -19,10 +19,9 @@ class AnimeController extends AbstractController
      */
     public function index(): Response
     {
-        $arResult['anime'] = $this->getAllAnime();
-        $arResult['categories'] = $this->getAllCategories();
+        $arResult['animeList'] = $this->getAllAnime();
 
-        return $this->render('anime/index.html.twig', $arResult);
+        return $this->render('anime/list.html.twig', $arResult);
     }
 
     /**
