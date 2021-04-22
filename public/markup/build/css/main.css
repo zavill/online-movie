@@ -408,7 +408,8 @@ header {
 
 .anime-section {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  margin-bottom: 30px; }
   .anime-section__header {
     padding-top: 19px;
     font-size: 42px;
