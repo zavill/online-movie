@@ -16,7 +16,7 @@
                 {% for anime in animeList %}
                     <div class="anime-item">
                         <div class="anime-item__poster">
-                            <img src="{{ anime.posterURL }}">
+                            <a href="{{ url('anime_player', {id: anime.id}) }}"><img src="{{ anime.posterURL }}"></a>
                             <div class="rate-flag">
                                 <div class="rate-flag__inner">
                                     <div class="full-star blue-svg"></div>
@@ -25,8 +25,8 @@
                             </div>
                         </div>
                         <div class="anime-item__detail">
-                            <h2 class="anime-item__header">{{ anime.name }}</h2>
-                            <p>{{ anime.nameOrig }}</p>
+                            <h2 class="anime-item__header"><a href="{{ url('anime_player', {id: anime.id}) }}">{{ anime.name }}</a></h2>
+                            <p><a href="{{ url('anime_player', {id: anime.id}) }}">{{ anime.nameOrig }}</a></p>
                             <div class="anime-item__info">
                                 <h2 class="anime-item__main-info">{{ anime.type }} / {{ anime.year }}
                                     / {% for genre in anime.category %}
