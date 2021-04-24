@@ -1,5 +1,3 @@
-let baseAPIURL = 'http://lampstudio.local/api/';
-
 window.PlayerComponent = function (initRating, serialId) {
     this.initRating = initRating;
     this.serialId = serialId;

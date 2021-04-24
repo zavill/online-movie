@@ -10,16 +10,16 @@
                     <img src="{{ anime.posterURL }}" height="310" width="230">
                 </div>
                 {% if anime.screenshots|length %}
-                <div class="detail-info__images__frames">
-                    <div class="detail-info__images__frames__header">
-                        <h2>Кадры из аниме:</h2>
+                    <div class="detail-info__images__frames">
+                        <div class="detail-info__images__frames__header">
+                            <h2>Кадры из аниме:</h2>
+                        </div>
+                        <div class="detail-info__images__frames__images">
+                            {% for screenshot in anime.screenshots %}
+                                <img src="{{ screenshot.url }}">
+                            {% endfor %}
+                        </div>
                     </div>
-                    <div class="detail-info__images__frames__images">
-                        {% for screenshot in anime.screenshots %}
-                            <img src="{{ screenshot.url }}">
-                        {% endfor %}
-                    </div>
-                </div>
                 {% endif %}
             </div>
             <div class="detail-info__text">
@@ -82,9 +82,10 @@
                 <p>Голосов: <span class="detail-info__rating__final_count">{{ ratingCount }}</span></p>
             </div>
             <div class="detail-info__rating__stars">
-                <div class="flex-row">
+                <div class="flex-row" id="rating-wrap">
                     {% for i in 0..9 %}
-                        <label class="detail-info__rating__stars__star {% if anime.averageRating >= i + 1 %} full-star {% endif %}"></label>
+                        <label class="detail-info__rating__stars__star{% if anime.averageRating >= i + 1 %} full-star{% endif %}"
+                               id="rating-star-{{ i+1 }}" data-rating="{{ i+1 }}"></label>
                     {% endfor %}
                 </div>
                 <p>Оценить:</p>
@@ -241,4 +242,7 @@
         {# </div> #}
         {# </div> #}
     </div>
+    <script type="text/javascript">
+        let Player = new PlayerComponent({{ anime.averageRating }}, {{ anime.id }});
+    </script>
 {% endblock %}
