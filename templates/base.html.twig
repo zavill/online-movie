@@ -7,10 +7,14 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
     {% block stylesheets %}
         <link type="text/css" rel="stylesheet" href="/public/markup/build/css/main.css">
+        <link href="/public/markup/node_modules/jquery-toast-plugin/dist/jquery.toast.min.css" type="text/css" rel="stylesheet">
         {# {{ encore_entry_link_tags('app') }} #}
     {% endblock %}
 
     {% block javascripts %}
+        <script type="text/javascript" src="/public/markup/build/js/scripts.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="/public/markup/node_modules/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
         {# {{ encore_entry_script_tags('app') }} #}
     {% endblock %}
 </head>
