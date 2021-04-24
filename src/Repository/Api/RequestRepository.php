@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @method Request|null find($id, $lockMode = null, $lockVersion = null)
@@ -52,7 +53,7 @@ class RequestRepository extends ServiceEntityRepository
         if (count($requestsCount) < $maxCount) {
             $this->createRequest($name);
         } else {
-            $response = new JsonResponse(['error' => 'Превышено количество запросов']);
+            $response = new JsonResponse(['error' => 'Превышено количество запросов'], Response::HTTP_TOO_MANY_REQUESTS);
             $response->send();
             exit();
         }
