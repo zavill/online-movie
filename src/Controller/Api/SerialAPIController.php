@@ -22,10 +22,33 @@ class SerialAPIController extends AbstractApi
      */
     public function getList(): JsonResponse
     {
+        $arFilter = $this->request->get('filter') ?: [];
+        $page = $this->request->get('page') ?: 1;
+        $limit = 1;
+
         $this->requestRepository->sendRequest('getSerialList', 15);
 
+        $rawResult = $this->entityManager->getRepository(Anime::class)->findBy($arFilter, [], 1, ($page * $limit) - $limit);
+
+        foreach ($rawResult as $serial) {
+            $normalizedResult = $serial->jsonSerialize();
+        }
+
         return new JsonResponse(
-            ['data' => $this->entityManager->getRepository(Anime::class)->findAll()],
+            ['data' => $normalizedResult ?: []],
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * @Route("/{id}", methods={"GET"})
+     */
+    public function getSerial($id): JsonResponse
+    {
+        $this->requestRepository->sendRequest('getSerial', 60);
+
+        return new JsonResponse(
+            ['data' => $this->entityManager->getRepository(Anime::class)->find($id)->jsonSerialize()],
             Response::HTTP_OK
         );
     }

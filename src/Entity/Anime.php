@@ -586,4 +586,24 @@ class Anime
         }
     }
 
+    public function jsonSerialize(): array
+    {
+
+        foreach ($this->getCategory() as $category) {
+            $categories[] = $category->getName();
+        }
+
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'nameOrig' => $this->getNameOrig(),
+            'categories' => $categories ?? [],
+            'averageRating' => $this->getAverageRating(),
+            'posterURL' => $this->getPosterURL(),
+            'type' => $this->getType(),
+            'year' => $this->getYear(),
+            'shortDescription' => $this->getShortDescription()
+        ];
+    }
+
 }
