@@ -29,7 +29,7 @@ class SerialAPIController extends AbstractApi
         $arSort = ($sortField ? [$sort[0] => $sort[1]] : []);
 
         $page = $this->request->get('page') ?: 1;
-        $limit = 3;
+        $limit = $this->request->get('limit') ?: 3;
 
         $this->requestRepository->sendRequest('getSerialList', 250);
 
