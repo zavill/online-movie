@@ -4,22 +4,22 @@
 
 {% block body %}
     <div class="recommendations-block">
-        <div class="recommendations-block__container">
-            <div class="recommendations-block__container__list">
-                <div class="recommendations-block__container__list__poster">
-                    <img src="/public/markup/build/img/anime_poster.png">
+        <div class="recommendations-block__container swiper-container">
+            <div class="recommendations-block__container__list swiper-wrapper">
+                <div class="swiper-slide">
+                    {% for serial in recommendations %}
+                        <div class="recommendations-block__container__list__poster">
+                            <a href="{{ url('anime_player', {id: serial.id}) }}">
+                                <img src="{{ serial.posterURL }}">
+                            </a>
+                        </div>
+                    {% endfor %}
+                    <div class="recommendations-block__container__text">
+                        <h2>Выбирай и смотри!</h2>
+                        <p>Озвучка от LampStudio</p>
+                        <h3>Лучшее в категории ТВ Сериалы</h3>
+                    </div>
                 </div>
-                <div class="recommendations-block__container__list__poster">
-                    <img src="/public/markup/build/img/anime_poster.png">
-                </div>
-                <div class="recommendations-block__container__list__poster">
-                    <img src="/public/markup/build/img/anime_poster.png">
-                </div>
-            </div>
-            <div class="recommendations-block__container__text">
-                <h2>САМЫЙ КРУТОЙ СЕРИАЛ</h2>
-                <p>МОЖЕТ Я ВСТРЕЧУ ТЕБЯ В ПОДЗЕМЕЛЬЕ</p>
-                <h3>МНОГОГОЛОСАЯ ОЗВУЧКА</h3>
             </div>
         </div>
     </div>
@@ -38,7 +38,8 @@
                                 </a>
                                 <div class="new-block__section__item__header">
                                     <h2><a href="{{ url('anime_player', {id: serial.id}) }}">{{ serial.name }}</a></h2>
-                                    <h3><a href="{{ url('anime_player', {id: serial.id}) }}">{{ serial.nameOrig }}</a></h3>
+                                    <h3><a href="{{ url('anime_player', {id: serial.id}) }}">{{ serial.nameOrig }}</a>
+                                    </h3>
                                 </div>
                             </div>
                         {% endfor %}
@@ -86,7 +87,8 @@
                         По вашему запросу сериалов не найдено!
                     </div>
                     <div class="anime-list__block__container">
-                        <button class="anime-list__block__container__button"><a href="{{ url('anime') }}">Полный список аниме</a>
+                        <button class="anime-list__block__container__button"><a href="{{ url('anime') }}">Полный список
+                                аниме</a>
                         </button>
                     </div>
                 </div>
@@ -141,5 +143,10 @@
     </div>
     <script>
         let MainComponentApp = new MainComponent();
+        const swiper = new Swiper('.swiper-container', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+        });
     </script>
 {% endblock %}

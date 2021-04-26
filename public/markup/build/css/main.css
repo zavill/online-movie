@@ -118,6 +118,9 @@ header {
           flex-direction: column !important; } }
       .recommendations-block__container__list__poster {
         margin-right: 50px; }
+        .recommendations-block__container__list__poster img {
+          width: 165px;
+          height: 293px; }
       .recommendations-block__container__list__poster:last-child {
         margin-right: 15px !important; }
     .recommendations-block__container__text h2, .recommendations-block__container__text p, .recommendations-block__container__text h3 {
