@@ -16,7 +16,7 @@
                         </div>
                         <div class="detail-info__images__frames__images">
                             {% for screenshot in anime.screenshots %}
-                                <img src="{{ screenshot.url }}">
+                                <a data-fancybox="gallery" href="{{ screenshot.url }}"><img src="{{ screenshot.url }}"></a>
                             {% endfor %}
                         </div>
                     </div>
