@@ -4,14 +4,12 @@ namespace App\Repository;
 
 use App\Entity\Anime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method Anime|null find($id, $lockMode = null, $lockVersion = null)
  * @method Anime|null findOneBy(array $criteria, array $orderBy = null)
  * @method Anime[]    findAll()
- * @method Anime[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class AnimeRepository extends ServiceEntityRepository
 {
@@ -21,17 +19,41 @@ class AnimeRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param $categoryId
+     * @param $criteria
+     * @param null $orderBy
+     * @param null $limit
+     * @param null $offset
      * @return Anime[]
      */
-    public function findByCategory($categoryId): array
+    public function findBy($criteria, $orderBy = null, $limit = null, $offset = null): array
     {
-        return $this->createQueryBuilder('a')
-            ->join('App\Entity\Categories', 'c')
-            ->andWhere('c.id = :category_id')
-            ->setParameter('category_id', $categoryId)
-            ->getQuery()
-            ->getResult();
+        $query = $this->createQueryBuilder('a');
+
+        foreach ($criteria as $propName => $propValue) {
+            if ($propName === 'category') {
+                $query->andWhere(':category MEMBER of a.category');
+                $query->setParameter('category', $propValue);
+            } else {
+                $query->andWhere("a.$propName = :$propName");
+                $query->setParameter("$propName", $propValue);
+            }
+        }
+
+        if ($orderBy !== null) {
+            foreach ($orderBy as $sortName => $sortType) {
+                $query->addOrderBy("a.$sortName", $sortType);
+            }
+        }
+
+        if ($limit !== null) {
+            $query->setMaxResults($limit);
+        }
+
+        if ($offset !== null) {
+            $query->setFirstResult($offset);
+        }
+
+        return $query->getQuery()->getResult();
     }
 
     /**

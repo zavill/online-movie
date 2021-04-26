@@ -23,19 +23,28 @@ class SerialAPIController extends AbstractApi
     public function getList(): JsonResponse
     {
         $arFilter = $this->request->get('filter') ?: [];
+
+        $sortField = $this->request->get('sortField');
+        $sort = explode('|', $sortField);
+        $arSort = ($sortField ? [$sort[0] => $sort[1]] : []);
+
         $page = $this->request->get('page') ?: 1;
-        $limit = 1;
+        $limit = 3;
 
-        $this->requestRepository->sendRequest('getSerialList', 15);
+        $this->requestRepository->sendRequest('getSerialList', 250);
 
-        $rawResult = $this->entityManager->getRepository(Anime::class)->findBy($arFilter, [], 1, ($page * $limit) - $limit);
+        $rawResult = $this->entityManager->getRepository(Anime::class)->findBy($arFilter, $arSort, $limit, ($page * $limit) - $limit);
 
         foreach ($rawResult as $serial) {
-            $normalizedResult = $serial->jsonSerialize();
+            $normalizedResult[] = $serial->jsonSerialize();
         }
 
         return new JsonResponse(
-            ['data' => $normalizedResult ?: []],
+            ['data' => $normalizedResult ?? [], 'debug' => [
+                'page' => $page,
+                'limit' => $limit,
+                'offset' => ($page * $limit) - $limit
+            ]],
             Response::HTTP_OK
         );
     }

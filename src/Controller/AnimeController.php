@@ -8,18 +8,25 @@ use App\Entity\Rating;
 use App\Repository\AnimeRepository;
 use App\Service\Kodik;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AnimeController extends AbstractController
 {
 
+    protected $request;
+
     /**
      * @Route("/anime", name="anime")
      */
-    public function index(): Response
+    public function index(RequestStack $requestStack): Response
     {
+
+        $this->request = $requestStack->getCurrentRequest();
+
         $arResult['animeList'] = $this->getAllAnime();
+        $arResult['categories'] = $this->getAllCategories();
 
         return $this->render('anime/list.html.twig', $arResult);
     }
@@ -66,7 +73,12 @@ class AnimeController extends AbstractController
      */
     private function getAllAnime(): array
     {
-        return $this->getDoctrine()->getRepository(Anime::class)->findAll();
+        //return $this->getDoctrine()->getRepository(Anime::class)->findAll();
+
+        $sortField = $this->request->get('sortField');
+        $arSort = ($sortField ? [$sortField => 'ASC'] : ['createdAt' => 'DESC']);
+
+        return $this->getDoctrine()->getRepository(Anime::class)->findBy([], $arSort, 3);
     }
 
     /**
