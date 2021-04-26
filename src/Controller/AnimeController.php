@@ -32,6 +32,20 @@ class AnimeController extends AbstractController
     }
 
     /**
+     * @Route("/ongoing", name="ongoing")
+     */
+    public function ongoing(RequestStack $requestStack): Response
+    {
+
+        $this->request = $requestStack->getCurrentRequest();
+
+        $arResult['animeList'] = $this->getAllAnime(['status' => 'Онгоинг']);
+        $arResult['categories'] = $this->getAllCategories();
+
+        return $this->render('anime/ongoing.html.twig', $arResult);
+    }
+
+    /**
      * @Route("/anime/{id}", name="anime_player")
      *
      * @param $id
@@ -69,16 +83,17 @@ class AnimeController extends AbstractController
     }
 
     /**
+     * @param array $criteria
      * @return array
      */
-    private function getAllAnime(): array
+    private function getAllAnime($criteria = []): array
     {
         //return $this->getDoctrine()->getRepository(Anime::class)->findAll();
 
         $sortField = $this->request->get('sortField');
         $arSort = ($sortField ? [$sortField => 'ASC'] : ['createdAt' => 'DESC']);
 
-        return $this->getDoctrine()->getRepository(Anime::class)->findBy([], $arSort, 3);
+        return $this->getDoctrine()->getRepository(Anime::class)->findBy($criteria, $arSort, 3);
     }
 
     /**
