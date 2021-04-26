@@ -7,12 +7,14 @@
         <h1 class="anime-section__header">Список аниме</h1>
         <div class="anime-section__sort">
             <p>Сортировать по:</p>
-            <select>
-                <option>Дате добавления</option>
+            <select id="sort">
+                <option value="createdAt|DESC">Дате добавления (сначала новые)</option>
+                <option value="createdAt|ASC">Дате добавления (сначала старые)</option>
+                <option value="averageRating|DESC">Рейтингу</option>
             </select>
         </div>
         <div class="flex-row">
-            <div class="anime-section">
+            <div class="anime-section" id="anime-section">
                 {% for anime in animeList %}
                     <div class="anime-item">
                         <div class="anime-item__poster">
@@ -40,71 +42,58 @@
                     </div>
                 {% endfor %}
             </div>
+            <div class="anime-section__empty" style="display: none;" id="serials-empty-container">
+                По вашему запросу сериалов не найдено!
+            </div>
             <div class="anime-list__block__filter">
                 <div class="anime-list__block__filter__header-block">
                     <h3>ФИЛЬТР</h3>
                     <div class="anime-list__block__filter__header-block__figure-up"></div>
                 </div>
-                <div class="anime-list__block__filter__container">
+                <div class="anime-list__block__filter__container" id="filter-container">
                     <div class="anime-list__block__filter__container__item">
                         <div class="anime-list__block__filter__container__item__header">
                             <p>Жанры</p>
                         </div>
                         <div class="anime-list__block__filter__container__item__select">
-                            <select>
-                                <option selected disabled>Выберите жанр</option>
-                                <option>Аниме</option>
-                                <option>Аниме</option>
-                                <option>Аниме</option>
-                                <option>Аниме</option>
+                            <select data-name="category">
+                                <option selected value="empty">Выберите жанр</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category.name }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>
                     <div class="anime-list__block__filter__container__item">
                         <div class="anime-list__block__filter__container__item__header">
-                            <p>Жанры</p>
+                            <p>Год выпуска</p>
                         </div>
                         <div class="anime-list__block__filter__container__item__select">
-                            <select>
-                                <option selected disabled>Выберите жанр</option>
-                                <option>Аниме</option>
-                                <option>Аниме</option>
-                                <option>Аниме</option>
-                                <option>Аниме</option>
+                            <select data-name="year">
+                                <option selected value="empty">Выберите год выпуска</option>
+                                {% for year in 2010..2021 %}
+                                    <option value="{{ year }}">{{ year }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>
                     <div class="anime-list__block__filter__container__item">
                         <div class="anime-list__block__filter__container__item__header">
-                            <p>Жанры</p>
+                            <p>Тип</p>
                         </div>
                         <div class="anime-list__block__filter__container__item__select">
-                            <select>
-                                <option selected disabled>Выберите жанр</option>
-                                <option>Аниме</option>
-                                <option>Аниме</option>
-                                <option>Аниме</option>
-                                <option>Аниме</option>
+                            <select data-name="type">
+                                <option selected value="empty">Выберите тип</option>
+                                <option value="ТВ Сериал">ТВ Сериал</option>
+                                <option value="Полнометражный фильм">Полнометражный фильм</option>
                             </select>
                         </div>
                     </div>
-                    <div class="anime-list__block__filter__container__item">
-                        <div class="anime-list__block__filter__container__item__header">
-                            <p>Жанры</p>
-                        </div>
-                        <div class="anime-list__block__filter__container__item__select">
-                            <select>
-                                <option selected disabled>Выберите жанр</option>
-                                <option>Аниме</option>
-                                <option>Аниме</option>
-                                <option>Аниме</option>
-                                <option>Аниме</option>
-                            </select>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        let SerialsList = new SerialList();
+    </script>
 {% endblock %}
