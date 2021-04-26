@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const gulpif = require('gulp-if');
+const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync');
 const changed = require('gulp-changed');
@@ -86,6 +87,7 @@ gulp.task('js:build', function (cb) {
 
 gulp.task('js:build:prod', function (cb) {
     return gulp.src('./src/js/**/*.js')
+        .pipe(concat('scripts.js'))
         .pipe(uglify())
         .pipe(gulp.dest(path.build.js))
 });

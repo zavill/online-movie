@@ -1,6 +1,9 @@
-window.SerialList = function () {
+window.SerialList = function (isOnGoingPage = false) {
     this.isLoadSerials = false;
     this.emptyResponse = false;
+
+    this.isOnGoingPage = isOnGoingPage;
+    console.log('Ongoing ' + isOnGoingPage);
 
     this.serialsContainer = $('#anime-section');
     this.serialsEmptyContainer = $('#serials-empty-container');
@@ -29,6 +32,11 @@ window.SerialList.prototype = {
     loadSerials: function () {
         if (this.emptyResponse) {
             return;
+        }
+
+        if (this.isOnGoingPage) {
+            console.log('OnGoing');
+            this.filter['status'] = 'Онгоинг';
         }
 
         this.isLoadSerials = true;
