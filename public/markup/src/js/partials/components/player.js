@@ -60,7 +60,7 @@ window.PlayerComponent.prototype = {
     },
 
     overRating: function (rating) {
-        for (let i = 1; i < 10; i++) {
+        for (let i = 1; i < 11; i++) {
             $('#rating-star-' + i).removeClass('full-star');
         }
 
@@ -70,11 +70,11 @@ window.PlayerComponent.prototype = {
     },
 
     outRating: function () {
-        for (let i = 1; i < this.initRating; i++) {
-            $('#rating-star-' + i).addClass('full-star');
-        }
-        for (let i = Math.round(this.initRating); i < 10; i++) {
+        for (let i = Math.round(this.initRating); i < 11; i++) {
             $('#rating-star-' + i).removeClass('full-star');
+        }
+        for (let i = 1; i < this.initRating+1; i++) {
+            $('#rating-star-' + i).addClass('full-star');
         }
     }
 }
