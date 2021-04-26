@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Список Аниме {% endblock %}
+
+{% block body %}
+    <div class="__container">
+        <h1 class="anime-section__header">Онгоинги</h1>
+        <div class="anime-section__sort">
+            <p>Сортировать по:</p>
+            <select id="sort">
+                <option value="createdAt|DESC">Дате добавления (сначала новые)</option>
+                <option value="createdAt|ASC">Дате добавления (сначала старые)</option>
+                <option value="averageRating|DESC">Рейтингу</option>
+            </select>
+        </div>
+        <div class="flex-row">
+            <div class="anime-section" id="anime-section">
+                {% for anime in animeList %}
+                    <div class="anime-item">
+                        <div class="anime-item__poster">
+                            <a href="{{ url('anime_player', {id: anime.id}) }}"><img src="{{ anime.posterURL }}"></a>
+                            <div class="rate-flag">
+                                <div class="rate-flag__inner">
+                                    <div class="full-star blue-svg"></div>
+                                    <div class="rate-flag__text">{{ anime.averageRating }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="anime-item__detail">
+                            <h2 class="anime-item__header"><a href="{{ url('anime_player', {id: anime.id}) }}">{{ anime.name }}</a></h2>
+                            <p><a href="{{ url('anime_player', {id: anime.id}) }}">{{ anime.nameOrig }}</a></p>
+                            <div class="anime-item__info">
+                                <h2 class="anime-item__main-info">{{ anime.type }} / {{ anime.year }}
+                                    / {% for genre in anime.category %}
+                                        {{ genre.name }}{% if not loop.last %},{% endif %}
+                                    {% endfor %}</h2>
+                            </div>
+                            <div class="anime-item__description">
+                                {{ anime.shortDescription }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="anime-section__empty" style="display: none;" id="serials-empty-container">
+                По вашему запросу сериалов не найдено!
+            </div>
+            <div class="anime-list__block__filter">
+                <div class="anime-list__block__filter__header-block">
+                    <h3>ФИЛЬТР</h3>
+                    <div class="anime-list__block__filter__header-block__figure-up"></div>
+                </div>
+                <div class="anime-list__block__filter__container" id="filter-container">
+                    <div class="anime-list__block__filter__container__item">
+                        <div class="anime-list__block__filter__container__item__header">
+                            <p>Жанры</p>
+                        </div>
+                        <div class="anime-list__block__filter__container__item__select">
+                            <select data-name="category">
+                                <option selected value="empty">Выберите жанр</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="anime-list__block__filter__container__item">
+                        <div class="anime-list__block__filter__container__item__header">
+                            <p>Год выпуска</p>
+                        </div>
+                        <div class="anime-list__block__filter__container__item__select">
+                            <select data-name="year">
+                                <option selected value="empty">Выберите год выпуска</option>
+                                {% for year in 2010..2021 %}
+                                    <option value="{{ year }}">{{ year }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="anime-list__block__filter__container__item">
+                        <div class="anime-list__block__filter__container__item__header">
+                            <p>Тип</p>
+                        </div>
+                        <div class="anime-list__block__filter__container__item__select">
+                            <select data-name="type">
+                                <option selected value="empty">Выберите тип</option>
+                                <option value="ТВ Сериал">ТВ Сериал</option>
+                                <option value="Полнометражный фильм">Полнометражный фильм</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let SerialsList = new SerialList(true);
+    </script>
+{% endblock %}
