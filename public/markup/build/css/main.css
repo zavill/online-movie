@@ -1,2 +1,563 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;vertical-align:baseline;text-decoration:none;font-family:'Arial', sans-serif;color:white;-webkit-appearance:none;-moz-appearance:none;box-sizing:unset}.__container{max-width:1084px;margin:0 auto;width:100%}.flex-row{display:flex;flex-direction:row}#__main{background-color:#1e2331}button{padding:8px;max-width:230px;width:100%;background-color:#26293f;color:white;border:1px solid #26293f;border-radius:5px;font-size:18px}.full-star{background-image:url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M10.97 1.04l2.25 4.57c.16.32.46.54.81.59l5.05.73c.88.13 1.23 1.21.6 1.84l-3.66 3.55c-.25.25-.37.6-.3.96l.86 5.02c.15.88-.78 1.55-1.57 1.14l-4.5-2.37a1.08 1.08 0 00-1.01 0l-4.51 2.37a1.08 1.08 0 01-1.57-1.14l.87-5.02c.06-.35-.06-.7-.31-.96L.33 8.77c-.64-.63-.29-1.71.6-1.84l5.04-.73c.35-.05.65-.27.8-.6l2.26-4.56c.4-.8 1.54-.8 1.94 0z' fill='%23FFC700'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Cpath fill='%23fff' d='M0 0h20v20H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") !important;height:27px;width:27px;background-size:contain;background-repeat:no-repeat}footer{background-color:#111119}.footer{height:43px;display:flex;justify-content:space-between;position:relative;align-items:center}header{background-color:#131324}.header{display:flex;justify-content:space-between;align-items:center;position:relative;height:43px;-webkit-box-shadow:0 5px 5px -5px rgba(0,0,0,0.6);-moz-box-shadow:0 5px 5px -5px rgba(0,0,0,0.6);box-shadow:0 5px 5px -5px rgba(0,0,0,0.6)}.header__logo{margin-right:25px;display:flex;flex-direction:row}.header__logo__text{display:flex;flex-direction:column;line-height:1em}.header__logo__text__sub-head{font-weight:normal;font-style:italic}.header__menu{height:100%;width:909px;transform:skew(20deg);background:#080812}.header__menu ul{display:flex;flex-direction:row}.header__menu li{list-style:none;transform:skew(-20deg);padding-top:14px;padding-left:60px}.header__login{margin-left:34px}.recommendations-block{background-size:cover;background-position:center center;background-repeat:no-repeat;position:relative;background-image:url("../img/recommendations_bg.png");border-bottom:5px solid #505464}.recommendations-block__container{margin:0 auto;padding-top:30px;padding-bottom:30px;max-width:1084px;display:flex;flex-direction:row;align-items:center}@media (max-width: 998px){.recommendations-block__container{flex-direction:column !important}}.recommendations-block__container__list{display:flex;flex-direction:row}@media (max-width: 998px){.recommendations-block__container__list{flex-direction:column !important}}.recommendations-block__container__list__poster{margin-right:50px}.recommendations-block__container__list__poster img{height:310px;width:230px}.recommendations-block__container__list__poster:last-child{margin-right:15px !important}.recommendations-block__container__text h2,.recommendations-block__container__text p,.recommendations-block__container__text h3{padding-top:1px}.recommendations-block__container__text p{font-weight:bold}.recommendations-block__container__text h3{font-size:20px}.new-block{background-color:#26293f;padding-top:30px;padding-bottom:21px}.new-block__header{padding-bottom:23px}@media (max-width: 998px){.new-block__header{text-align:center}}.new-block__section{display:flex}@media (max-width: 998px){.new-block__section{flex-direction:column;align-items:center}}.new-block__section__item{margin-right:53px}.new-block__section__item img{width:230px;height:310px}@media (max-width: 998px){.new-block__section__item{margin-bottom:30px;margin-right:0 !important}}.new-block__section__item__header{max-width:230px}.anime-list__block{background-color:#1e2331;padding-top:25px}.anime-list__block__header{padding-bottom:26px}@media (max-width: 998px){.anime-list__block__header{text-align:center}}.anime-list__block__section{display:flex;padding-bottom:38px;flex-direction:column}.anime-list__block__section__item{display:flex;flex-direction:row;padding-bottom:43px}@media (max-width: 998px){.anime-list__block__section__item{flex-direction:column !important;align-items:center}}.anime-list__block__section__item__image{max-width:230px}@media (max-width: 998px){.anime-list__block__section__item__image{margin-bottom:15px}}.anime-list__block__section__item__detail{max-width:503px;padding-left:17px}.anime-list__block__section__item__detail__header{padding-bottom:15px}.anime-list__block__section__item__detail__genre{padding-bottom:30px}.anime-list__block__section__item:last-child{padding-bottom:0 !important}.anime-list__block__filter{margin-top:-25px;margin-left:75px}@media (max-width: 998px){.anime-list__block__filter{display:none !important}}.anime-list__block__filter__header-block{display:flex;flex-direction:row}.anime-list__block__filter__header-block h3{padding-top:8px;padding-left:15px}.anime-list__block__filter__header-block__figure-up{margin-left:44px;background-color:#26293f;width:196px;height:35px}.anime-list__block__filter__container{max-width:321px;width:100%;background-color:#26293f;padding:11px 0 15px 12px}.anime-list__block__filter__container__item{padding-bottom:11px}.anime-list__block__filter__container__item__header p{font-weight:bold;padding-bottom:3px}.anime-list__block__filter__container__item__select select{max-width:96%;height:31px;width:100%;background-color:#1e2331;border:0;color:white}.anime-list__block__container{padding-bottom:33px}.anime-list__block__container__button{padding:8px;max-width:230px;width:100%;background-color:#26293f;color:white;border:1px solid #26293f;border-radius:5px;font-size:18px}.detail-info{padding-top:40px;display:flex;flex-direction:column}.detail-info__images{display:flex;flex-direction:column;max-width:230px;padding-right:31px}.detail-info__images__poster{padding-bottom:10px}.detail-info__images__frames{text-align:center}.detail-info__images__frames__images{margin-top:10px;display:flex;max-width:230px;flex-wrap:wrap}.detail-info__images__frames__images img{padding-bottom:1px;padding-top:1px;width:114px;height:64px}.detail-info__images__frames__images img:nth-child(2n){padding-left:2px}.detail-info__text{display:flex;flex-direction:column;max-width:680px;width:100%;justify-content:space-between;align-items:stretch}.detail-info__text__subheader{font-weight:normal}.detail-info__text__options{margin-top:30px}.detail-info__text__options dl{display:flex;flex-direction:row;margin-bottom:6px}.detail-info__text__options dl dt{width:60%;text-align:left;position:relative;word-break:break-word;box-sizing:border-box;display:block}.detail-info__text__options dl dd{width:80%;text-align:left;padding-left:9%}.detail-info__text__description{margin-top:20px}.detail-info__text__description__header{margin-bottom:29px}.detail-info__text__description__text{max-width:800px}.detail-info__rating{margin-left:65px;margin-top:24px;display:flex;flex-direction:row;margin-bottom:27px}.detail-info__rating__final{margin-left:99px}.detail-info__rating__final__value{font-size:32px}.detail-info__rating__stars{display:flex;margin-left:43px;flex-direction:column}.detail-info__rating__stars__star{display:flex;height:27px;width:27px;background-size:contain;background-repeat:no-repeat;transition:background 250ms ease-in-out, transform 150ms ease;margin-top:2.5px;-webkit-appearance:none;-moz-appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M10.97 1.04l2.25 4.57c.16.32.46.54.81.59l5.05.73c.88.13 1.23 1.21.6 1.84l-3.66 3.55c-.25.25-.37.6-.3.96l.86 5.02c.15.88-.78 1.55-1.57 1.14l-4.5-2.37a1.08 1.08 0 00-1.01 0l-4.51 2.37a1.08 1.08 0 01-1.57-1.14l.87-5.02c.06-.35-.06-.7-.31-.96L.33 8.77c-.64-.63-.29-1.71.6-1.84l5.04-.73c.35-.05.65-.27.8-.6l2.26-4.56c.4-.8 1.54-.8 1.94 0z' fill='%23F4F4F4'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Cpath fill='%23fff' d='M0 0h20v20H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E")}.detail-info__rating__stars__star:hover{background-image:url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M10.97 1.04l2.25 4.57c.16.32.46.54.81.59l5.05.73c.88.13 1.23 1.21.6 1.84l-3.66 3.55c-.25.25-.37.6-.3.96l.86 5.02c.15.88-.78 1.55-1.57 1.14l-4.5-2.37a1.08 1.08 0 00-1.01 0l-4.51 2.37a1.08 1.08 0 01-1.57-1.14l.87-5.02c.06-.35-.06-.7-.31-.96L.33 8.77c-.64-.63-.29-1.71.6-1.84l5.04-.73c.35-.05.65-.27.8-.6l2.26-4.56c.4-.8 1.54-.8 1.94 0z' fill='%23FFC700'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Cpath fill='%23fff' d='M0 0h20v20H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") !important}.detail-info__player{text-align:center}.detail-info__graphic-series{display:flex;align-items:center;flex-direction:column;margin-top:25px}.graphic-series__header{align-self:baseline;margin-bottom:26px}.graphic-series__button{margin-top:15px}.maybe-interesting{margin-top:37px}.maybe-interesting__section{margin-top:38px;display:flex;flex-direction:row}.interesting-item__header{padding-bottom:8px}.interesting-item__detail{display:flex;flex-direction:row}.interesting-item__description-container{max-width:150px;margin-left:7px;font-size:14px}.interesting-item:not(:nth-child(1)){margin-left:26px}.comments-block{margin-top:35px}.comments-block__section{margin-top:23px;display:flex;flex-direction:column}.comments-item{display:flex;flex-direction:row;margin-bottom:22px}.comments-detail{margin-left:12px}.comments-detail__head{display:flex;flex-direction:row;align-items:center;margin-bottom:5px}.comments-detail__text{margin-bottom:5px}.comments-detail__footer{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center}.comments-head__header{margin-right:17px}.comments-head__time{margin-right:17px}.comments-head__user-group{color:#a7a1a1 !important}.comments-footer__reply-button{margin-right:8px}.sub-comments{margin-top:20px}.sub-comments__item{display:flex;flex-direction:row}.good-rating{color:#44a25d !important}.bad-rating{color:#f25f59 !important}.anime-section{display:flex;flex-direction:column;margin-bottom:30px}.anime-section__empty{margin-top:30px;width:700px;padding-bottom:200px}.anime-section__header{padding-top:19px;font-size:42px;margin-bottom:15px}.anime-section__sort{display:flex;align-items:center}.anime-section__sort select{margin-left:10px;max-width:200px;height:31px;width:100%;background-color:#2d334e;border:0;color:white;border-radius:7px 7px 7px 7px}.anime-item{margin-top:41px;display:flex}.anime-item__detail{max-width:560px;margin-left:21px}.anime-item__detail *{margin-top:14px}.anime-item__main-info{font-weight:normal;letter-spacing:0.001em}.anime-item__poster{position:relative}.anime-item__poster img{height:310px;width:230px}.rate-flag{position:absolute;top:10px;left:-4px}.rate-flag__inner{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-weight:700;font-size:15px;line-height:20px;color:#111;position:relative;overflow:hidden;padding:4px 8px 4px 6px;z-index:6}.rate-flag__text{margin-left:5px}.rate-flag__inner:before{border-top:20px solid #26304e;content:'';position:absolute;top:0;left:0;width:100%;height:0;z-index:-1;-webkit-box-sizing:border-box;box-sizing:border-box}.rate-flag__inner:after{top:50%;border-bottom:20px solid #26304e;content:'';position:absolute;left:0;width:100%;height:0;z-index:-1;-webkit-box-sizing:border-box;box-sizing:border-box}.rate-flag:before{content:'';display:block;font-size:0;line-height:0;position:absolute;z-index:6;bottom:-7px;left:0;border-top:7px solid #26304e;border-left:4px solid transparent;width:0;height:0}
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  text-decoration: none;
+  font-family: 'Arial', sans-serif;
+  color: white;
+  /*transition: 150ms ease-in-out,  transform 150ms ease;*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: unset; }
+
+.__container {
+  max-width: 1084px;
+  margin: 0 auto;
+  width: 100%; }
+
+.flex-row {
+  display: flex;
+  flex-direction: row; }
+
+#__main {
+  background-color: #1e2331; }
+
+button {
+  padding: 8px;
+  max-width: 230px;
+  width: 100%;
+  background-color: #26293f;
+  color: white;
+  border: 1px solid #26293f;
+  border-radius: 5px;
+  font-size: 18px; }
+
+.full-star {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M10.97 1.04l2.25 4.57c.16.32.46.54.81.59l5.05.73c.88.13 1.23 1.21.6 1.84l-3.66 3.55c-.25.25-.37.6-.3.96l.86 5.02c.15.88-.78 1.55-1.57 1.14l-4.5-2.37a1.08 1.08 0 00-1.01 0l-4.51 2.37a1.08 1.08 0 01-1.57-1.14l.87-5.02c.06-.35-.06-.7-.31-.96L.33 8.77c-.64-.63-.29-1.71.6-1.84l5.04-.73c.35-.05.65-.27.8-.6l2.26-4.56c.4-.8 1.54-.8 1.94 0z' fill='%23FFC700'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Cpath fill='%23fff' d='M0 0h20v20H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") !important;
+  height: 27px;
+  width: 27px;
+  background-size: contain;
+  background-repeat: no-repeat; }
+
+/* Хидер/футер */
+footer {
+  background-color: #111119; }
+
+.footer {
+  height: 43px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center; }
+
+header {
+  background-color: #131324; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 43px;
+  -webkit-box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.6); }
+  .header__logo {
+    margin-right: 25px;
+    display: flex;
+    flex-direction: row; }
+    .header__logo__text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1em; }
+      .header__logo__text__sub-head {
+        font-weight: normal;
+        font-style: italic; }
+  .header__menu {
+    height: 100%;
+    width: 909px;
+    transform: skew(20deg);
+    background: #080812; }
+    .header__menu ul {
+      display: flex;
+      flex-direction: row; }
+    .header__menu li {
+      list-style: none;
+      transform: skew(-20deg);
+      padding-top: 14px;
+      padding-left: 60px; }
+  .header__login {
+    margin-left: 34px; }
+
+/* Компоненты */
+.recommendations-block {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  background-image: url("../img/recommendations_bg.png");
+  border-bottom: 5px solid #505464; }
+  .recommendations-block__container {
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    max-width: 1084px;
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    @media (max-width: 998px) {
+      .recommendations-block__container {
+        flex-direction: column !important; } }
+    .recommendations-block__container__list {
+      display: flex;
+      flex-direction: row; }
+      @media (max-width: 998px) {
+        .recommendations-block__container__list {
+          flex-direction: column !important; } }
+      .recommendations-block__container__list__poster {
+        margin-right: 50px; }
+        .recommendations-block__container__list__poster img {
+          height: 310px;
+          width: 230px; }
+      .recommendations-block__container__list__poster:last-child {
+        margin-right: 15px !important; }
+    .recommendations-block__container__text h2, .recommendations-block__container__text p, .recommendations-block__container__text h3 {
+      padding-top: 1px; }
+    .recommendations-block__container__text p {
+      font-weight: bold; }
+    .recommendations-block__container__text h3 {
+      font-size: 20px; }
+
+.new-block {
+  background-color: #26293f;
+  padding-top: 30px;
+  padding-bottom: 21px; }
+  .new-block__header {
+    padding-bottom: 23px; }
+    @media (max-width: 998px) {
+      .new-block__header {
+        text-align: center; } }
+  .new-block__section {
+    display: flex; }
+    @media (max-width: 998px) {
+      .new-block__section {
+        flex-direction: column;
+        align-items: center; } }
+    .new-block__section__item {
+      margin-right: 53px; }
+      .new-block__section__item img {
+        width: 230px;
+        height: 310px; }
+      @media (max-width: 998px) {
+        .new-block__section__item {
+          margin-bottom: 30px;
+          margin-right: 0 !important; } }
+      .new-block__section__item__header {
+        max-width: 230px; }
+
+.anime-list__block {
+  background-color: #1e2331;
+  padding-top: 25px; }
+  .anime-list__block__header {
+    padding-bottom: 26px; }
+    @media (max-width: 998px) {
+      .anime-list__block__header {
+        text-align: center; } }
+  .anime-list__block__section {
+    display: flex;
+    padding-bottom: 38px;
+    flex-direction: column; }
+    .anime-list__block__section__item {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 43px; }
+      @media (max-width: 998px) {
+        .anime-list__block__section__item {
+          flex-direction: column !important;
+          align-items: center; } }
+      .anime-list__block__section__item__image {
+        max-width: 230px; }
+        @media (max-width: 998px) {
+          .anime-list__block__section__item__image {
+            margin-bottom: 15px; } }
+      .anime-list__block__section__item__detail {
+        max-width: 503px;
+        padding-left: 17px; }
+        .anime-list__block__section__item__detail__header {
+          padding-bottom: 15px; }
+        .anime-list__block__section__item__detail__genre {
+          padding-bottom: 30px; }
+    .anime-list__block__section__item:last-child {
+      padding-bottom: 0 !important; }
+  .anime-list__block__filter {
+    margin-top: -25px;
+    margin-left: 75px; }
+    @media (max-width: 998px) {
+      .anime-list__block__filter {
+        display: none !important; } }
+    .anime-list__block__filter__header-block {
+      display: flex;
+      flex-direction: row; }
+      .anime-list__block__filter__header-block h3 {
+        padding-top: 8px;
+        padding-left: 15px; }
+      .anime-list__block__filter__header-block__figure-up {
+        margin-left: 44px;
+        background-color: #26293f;
+        width: 196px;
+        height: 35px; }
+    .anime-list__block__filter__container {
+      max-width: 321px;
+      width: 100%;
+      background-color: #26293f;
+      padding: 11px 0 15px 12px; }
+      .anime-list__block__filter__container__item {
+        padding-bottom: 11px; }
+        .anime-list__block__filter__container__item__header p {
+          font-weight: bold;
+          padding-bottom: 3px; }
+        .anime-list__block__filter__container__item__select select {
+          max-width: 96%;
+          height: 31px;
+          width: 100%;
+          background-color: #1e2331;
+          border: 0;
+          color: white; }
+  .anime-list__block__container {
+    padding-bottom: 33px; }
+    .anime-list__block__container__button {
+      padding: 8px;
+      max-width: 230px;
+      width: 100%;
+      background-color: #26293f;
+      color: white;
+      border: 1px solid #26293f;
+      border-radius: 5px;
+      font-size: 18px; }
+
+.detail-info {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column; }
+  .detail-info__images {
+    display: flex;
+    flex-direction: column;
+    max-width: 230px;
+    padding-right: 31px; }
+    .detail-info__images__poster {
+      padding-bottom: 10px; }
+    .detail-info__images__frames {
+      text-align: center; }
+      .detail-info__images__frames__images {
+        margin-top: 10px;
+        display: flex;
+        max-width: 230px;
+        flex-wrap: wrap; }
+        .detail-info__images__frames__images img {
+          padding-bottom: 1px;
+          padding-top: 1px;
+          width: 114px;
+          height: 64px; }
+        .detail-info__images__frames__images img:nth-child(2n) {
+          padding-left: 2px; }
+  .detail-info__text {
+    display: flex;
+    flex-direction: column;
+    max-width: 680px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: stretch; }
+    .detail-info__text__subheader {
+      font-weight: normal; }
+    .detail-info__text__options {
+      margin-top: 30px; }
+      .detail-info__text__options dl {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 6px; }
+        .detail-info__text__options dl dt {
+          width: 60%;
+          text-align: left;
+          position: relative;
+          word-break: break-word;
+          box-sizing: border-box;
+          display: block; }
+        .detail-info__text__options dl dd {
+          width: 80%;
+          text-align: left;
+          padding-left: 9%; }
+    .detail-info__text__description {
+      margin-top: 20px; }
+      .detail-info__text__description__header {
+        margin-bottom: 29px; }
+      .detail-info__text__description__text {
+        max-width: 800px; }
+  .detail-info__rating {
+    margin-left: 65px;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 27px; }
+    .detail-info__rating__final {
+      margin-left: 99px; }
+      .detail-info__rating__final__value {
+        font-size: 32px; }
+    .detail-info__rating__stars {
+      display: flex;
+      margin-left: 43px;
+      flex-direction: column; }
+      .detail-info__rating__stars__star {
+        display: flex;
+        height: 27px;
+        width: 27px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: background 250ms ease-in-out, transform 150ms ease;
+        margin-top: 2.5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M10.97 1.04l2.25 4.57c.16.32.46.54.81.59l5.05.73c.88.13 1.23 1.21.6 1.84l-3.66 3.55c-.25.25-.37.6-.3.96l.86 5.02c.15.88-.78 1.55-1.57 1.14l-4.5-2.37a1.08 1.08 0 00-1.01 0l-4.51 2.37a1.08 1.08 0 01-1.57-1.14l.87-5.02c.06-.35-.06-.7-.31-.96L.33 8.77c-.64-.63-.29-1.71.6-1.84l5.04-.73c.35-.05.65-.27.8-.6l2.26-4.56c.4-.8 1.54-.8 1.94 0z' fill='%23F4F4F4'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Cpath fill='%23fff' d='M0 0h20v20H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E"); }
+      .detail-info__rating__stars__star:hover {
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M10.97 1.04l2.25 4.57c.16.32.46.54.81.59l5.05.73c.88.13 1.23 1.21.6 1.84l-3.66 3.55c-.25.25-.37.6-.3.96l.86 5.02c.15.88-.78 1.55-1.57 1.14l-4.5-2.37a1.08 1.08 0 00-1.01 0l-4.51 2.37a1.08 1.08 0 01-1.57-1.14l.87-5.02c.06-.35-.06-.7-.31-.96L.33 8.77c-.64-.63-.29-1.71.6-1.84l5.04-.73c.35-.05.65-.27.8-.6l2.26-4.56c.4-.8 1.54-.8 1.94 0z' fill='%23FFC700'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Cpath fill='%23fff' d='M0 0h20v20H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") !important; }
+  .detail-info__player {
+    text-align: center; }
+  .detail-info__graphic-series {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 25px; }
+
+.graphic-series__header {
+  align-self: baseline;
+  margin-bottom: 26px; }
+
+.graphic-series__button {
+  margin-top: 15px; }
+
+.maybe-interesting {
+  margin-top: 37px; }
+  .maybe-interesting__section {
+    margin-top: 38px;
+    display: flex;
+    flex-direction: row; }
+
+.interesting-item__header {
+  padding-bottom: 8px; }
+
+.interesting-item__detail {
+  display: flex;
+  flex-direction: row; }
+
+.interesting-item__description-container {
+  max-width: 150px;
+  margin-left: 7px;
+  font-size: 14px; }
+
+.interesting-item:not(:nth-child(1)) {
+  margin-left: 26px; }
+
+.comments-block {
+  margin-top: 35px; }
+  .comments-block__section {
+    margin-top: 23px;
+    display: flex;
+    flex-direction: column; }
+
+.comments-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 22px; }
+
+.comments-detail {
+  margin-left: 12px; }
+  .comments-detail__head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px; }
+  .comments-detail__text {
+    margin-bottom: 5px; }
+  .comments-detail__footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center; }
+
+.comments-head__header {
+  margin-right: 17px; }
+
+.comments-head__time {
+  margin-right: 17px; }
+
+.comments-head__user-group {
+  color: #a7a1a1 !important; }
+
+.comments-footer__reply-button {
+  margin-right: 8px; }
+
+.sub-comments {
+  margin-top: 20px; }
+  .sub-comments__item {
+    display: flex;
+    flex-direction: row; }
+
+.good-rating {
+  color: #44a25d !important; }
+
+.bad-rating {
+  color: #f25f59 !important; }
+
+.anime-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px; }
+  .anime-section__empty {
+    margin-top: 30px;
+    width: 700px;
+    padding-bottom: 200px; }
+  .anime-section__header {
+    padding-top: 19px;
+    font-size: 42px;
+    margin-bottom: 15px; }
+  .anime-section__sort {
+    display: flex;
+    align-items: center; }
+    .anime-section__sort select {
+      margin-left: 10px;
+      max-width: 200px;
+      height: 31px;
+      width: 100%;
+      background-color: #2d334e;
+      border: 0;
+      color: white;
+      border-radius: 7px 7px 7px 7px; }
+
+.anime-item {
+  margin-top: 41px;
+  display: flex; }
+  .anime-item__detail {
+    max-width: 560px;
+    margin-left: 21px; }
+  .anime-item__detail * {
+    margin-top: 14px; }
+  .anime-item__main-info {
+    font-weight: normal;
+    letter-spacing: 0.001em; }
+  .anime-item__poster {
+    position: relative; }
+    .anime-item__poster img {
+      height: 310px;
+      width: 230px; }
+
+.rate-flag {
+  position: absolute;
+  top: 10px;
+  left: -4px; }
+  .rate-flag__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    color: #111;
+    position: relative;
+    overflow: hidden;
+    padding: 4px 8px 4px 6px;
+    z-index: 6; }
+  .rate-flag__text {
+    margin-left: 5px; }
+  .rate-flag__inner:before {
+    border-top: 20px solid #26304e;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+  .rate-flag__inner:after {
+    top: 50%;
+    border-bottom: 20px solid #26304e;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+
+.rate-flag:before {
+  content: '';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  z-index: 6;
+  bottom: -7px;
+  left: 0;
+  border-top: 7px solid #26304e;
+  border-left: 4px solid transparent;
+  width: 0;
+  height: 0; }
+
+/* Модальные окна */
+.modal-container {
+  padding: 30px 12px 30px 12px;
+  background-color: #21243f;
+  max-height: 100%;
+  width: unset;
+  display: inline-block; }
+
+.modal-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .modal-wrap__text-line {
+    margin-top: 15px;
+    text-align: center; }
+
+.modal-field {
+  margin-top: 15px; }
+  .modal-field__header {
+    margin-left: 8px;
+    margin-bottom: 5px; }
+  .modal-field__input {
+    border-radius: 0;
+    color: black;
+    border: 1px #cdd5db solid;
+    height: 22px;
+    background-color: white; }
+
+.modal-button {
+  background-color: #131e2e;
+  padding: 6px;
+  margin-top: 15px; }
+
+.modal-social {
+  display: none;
+  flex-direction: row;
+  margin-top: 15px; }
+  .modal-social img {
+    margin-right: 5px; }
+  .modal-social img:last-child {
+    margin: 0 !important; }
+
+.modal-authorization__input {
+  width: 420px;
+  height: 28px !important; }
+
+.modal-authorization__button {
+  width: 96px; }
+
+.modal-authorization__social {
+  display: none; }
 /*# sourceMappingURL=main.css.map */

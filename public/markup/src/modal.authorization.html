@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LampStudio</title>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+<body>
+<div class="modal-container">
+    <div class="modal-wrap" id="modal-authorization">
+        <h1 class="modal-header">Вход</h1>
+        <div class="modal-field">
+            <p class="modal-field__header">Логин</p>
+            <input class="modal-field__input modal-authorization__input" type="text">
+        </div>
+        <div class="modal-field">
+            <p class="modal-field__header">Пароль</p>
+            <input class="modal-field__input modal-authorization__input" type="password">
+        </div>
+        <button class="modal-button modal-authorization__button"><a href="javascript:void(0);">Войти</a></button>
+        <div class="modal-authorization__social">
+            <p class="modal-wrap__text-line">-или-</p>
+            <p class="modal-wrap__text-line">Через соц. сети</p>
+            <div class="modal-social">
+                <img src="./img/vkontakte-auth.png" alt="Vkontakte">
+                <img src="./img/facebook-auth.png" alt="Facebook">
+                <img src="./img/twitter-auth.png" alt="Facebook">
+            </div>
+        </div>
+        <a class="modal-wrap__text-line" href="javascript:void(0);">У меня ещё нет аккаунта</a>
+    </div>
+    <div class="modal-wrap" id="modal-registration" style="display: none;">
+        <h1 class="modal-header">Регистрация</h1>
+        <div class="modal-field">
+            <p class="modal-field__header">Логин</p>
+            <input class="modal-field__input modal-authorization__input" type="text">
+        </div>
+        <div class="modal-field">
+            <p class="modal-field__header">Пароль</p>
+            <input class="modal-field__input modal-authorization__input" type="password">
+        </div>
+        <div class="modal-field">
+            <p class="modal-field__header">Повторите пароль</p>
+            <input class="modal-field__input modal-authorization__input" type="password">
+        </div>
+        <button class="modal-button"><a href="javascript:void(0);">Зарегистрироваться</a></button>
+        <div class="modal-authorization__social">
+            <p class="modal-wrap__text-line">-или-</p>
+            <p class="modal-wrap__text-line">Через соц. сети</p>
+            <div class="modal-social">
+                <img src="./img/vkontakte-auth.png" alt="Vkontakte">
+                <img src="./img/facebook-auth.png" alt="Facebook">
+                <img src="./img/twitter-auth.png" alt="Facebook">
+            </div>
+        </div>
+        <a class="modal-wrap__text-line" href="javascript:void(0);">У меня уже есть аккаунт</a>
+    </div>
+</div>
+</body>
+</html>

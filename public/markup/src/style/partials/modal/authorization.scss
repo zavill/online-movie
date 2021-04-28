@@ -1,0 +1,15 @@
+.modal-authorization {
+
+  &__input {
+    width: 420px;
+    height: 28px !important;
+  }
+
+  &__button {
+    width: 96px;
+  }
+
+  &__social {
+    display: none; //@todo: интеграция соц. сетей
+  }
+}
