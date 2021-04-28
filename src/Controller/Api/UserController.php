@@ -60,7 +60,52 @@ class UserController extends AbstractApi
                 throw new \Exception('Неверное имя пользователя или пароль', Response::HTTP_NOT_FOUND);
             }
 
-            $token = new UsernamePasswordToken($user, $user->getPassword(), 'dev', $user->getRoles());
+            $token = new UsernamePasswordToken($user, $user->getPassword(), $_ENV['APP_ENV'], $user->getRoles());
+            $this->get('security.token_storage')->setToken($token);
+
+            return new JsonResponse(
+                [
+                    'data' =>
+                        [
+                            'username' => $username
+                        ]
+                ], Response::HTTP_OK
+            );
+        } catch (\Exception $exception) {
+            return new JsonResponse(['error' => $exception->getMessage()], $exception->getCode());
+        }
+    }
+
+    /**
+     * @Route("/registration", methods={"POST"})
+     */
+    public function register(UserPasswordEncoderInterface $encoder): JsonResponse
+    {
+        try {
+            if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
+                throw new \Exception('Вы уже авторизованы', Response::HTTP_NOT_FOUND);
+            }
+
+            if (!$username = $this->request->get('username')) {
+                throw new \Exception('Не задано имя пользователя', Response::HTTP_UNPROCESSABLE_ENTITY);
+            } elseif (!$plainPassword = $this->request->get('password')) {
+                throw new \Exception('Не задан пароль', Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
+
+            $user = $this->userRepository->findOneBy(['username' => $username]);
+
+            if (!is_null($user)) {
+                throw new \Exception('Пользователь с таким именем уже существует', Response::HTTP_NOT_FOUND);
+            }
+
+            $user = new User();
+            $user->setUsername($username);
+            $user->setPassword($encoder->encodePassword($user, $plainPassword));
+
+            $this->entityManager->persist($user);
+            $this->entityManager->flush();
+
+            $token = new UsernamePasswordToken($user, $user->getPassword(), $_ENV['APP_ENV'], $user->getRoles());
             $this->get('security.token_storage')->setToken($token);
 
             return new JsonResponse(
