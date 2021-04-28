@@ -41,6 +41,9 @@ button {
   background-size: contain;
   background-repeat: no-repeat; }
 
+.fancybox-container {
+  z-index: 8999 !important; }
+
 /* Хидер/футер */
 footer {
   background-color: #111119; }

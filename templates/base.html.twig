@@ -50,7 +50,7 @@
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <h3>{{ app.user.username }}</h3>
             {% else %}
-                <h3>ВОЙТИ</h3>
+                <h3><a id="login-btn" href="javascript:void(0)">ВОЙТИ</a></h3>
             {% endif %}
         </div>
     </div>
@@ -68,5 +68,59 @@
         </div>
     </div>
 </footer>
+
+<div class="modal-container" style="display: none;" id="modal-auth-container">
+    <div class="modal-wrap" id="modal-authorization">
+        <h1 class="modal-header">Вход</h1>
+        <div class="modal-field">
+            <p class="modal-field__header">Логин</p>
+            <input class="modal-field__input modal-authorization__input" type="text" id="login-auth">
+        </div>
+        <div class="modal-field">
+            <p class="modal-field__header">Пароль</p>
+            <input class="modal-field__input modal-authorization__input" type="password" id="pass-auth">
+        </div>
+        <button class="modal-button modal-authorization__button" id="auth-btn"><a href="javascript:void(0);">Войти</a></button>
+        <div class="modal-authorization__social">
+            <p class="modal-wrap__text-line">-или-</p>
+            <p class="modal-wrap__text-line">Через соц. сети</p>
+            <div class="modal-social">
+                <img src="/public/markup/build/img/vkontakte-auth.png" alt="Vkontakte">
+                <img src="/public/markup/build/img/facebook-auth.png" alt="Facebook">
+                <img src="/public/markup/build/img/twitter-auth.png" alt="Facebook">
+            </div>
+        </div>
+        <a class="modal-wrap__text-line" href="javascript:void(0);" id="go-to-register-btn">У меня ещё нет аккаунта</a>
+    </div>
+    <div class="modal-wrap" id="modal-registration" style="display: none;">
+        <h1 class="modal-header">Регистрация</h1>
+        <div class="modal-field">
+            <p class="modal-field__header">Логин</p>
+            <input class="modal-field__input modal-authorization__input" type="text" id="login-reg">
+        </div>
+        <div class="modal-field">
+            <p class="modal-field__header">Пароль</p>
+            <input class="modal-field__input modal-authorization__input" type="password" id="pass-reg">
+        </div>
+        <div class="modal-field">
+            <p class="modal-field__header">Повторите пароль</p>
+            <input class="modal-field__input modal-authorization__input" type="password" id="repeat-pass-reg">
+        </div>
+        <button class="modal-button" id="reg-btn"><a href="javascript:void(0);">Зарегистрироваться</a></button>
+        <div class="modal-authorization__social">
+            <p class="modal-wrap__text-line">-или-</p>
+            <p class="modal-wrap__text-line">Через соц. сети</p>
+            <div class="modal-social">
+                <img src="/public/markup/build/img/vkontakte-auth.png" alt="Vkontakte">
+                <img src="/public/markup/build/img/facebook-auth.png" alt="Facebook">
+                <img src="/public/markup/build/img/twitter-auth.png" alt="Facebook">
+            </div>
+        </div>
+        <a class="modal-wrap__text-line" href="javascript:void(0);" id="go-to-auth-btn">У меня уже есть аккаунт</a>
+    </div>
+</div>
+<script type="text/javascript">
+    let ModalAuth = new modalAuth();
+</script>
 </body>
 </html>
