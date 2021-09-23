@@ -26,7 +26,7 @@ class RatingAPIController extends AbstractApi
      */
     public function set(): JsonResponse
     {
-        $this->requestRepository->sendRequest('setRating');
+        $this->requestRepository->sendRequest('setRating', 50);
 
         if (!$serialId = (int)$this->request->get('serialId')) {
             return new JsonResponse(
